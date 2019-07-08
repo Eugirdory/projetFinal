@@ -5,21 +5,21 @@ import java.util.List;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "Praticien")
+@Table(name = "praticien")
 @DiscriminatorValue("praticien")
 public class Praticien extends Personne{
 	
 	@OneToMany
-	@JoinColumn(name = "Spécialité")
+	@Column(name = "Specialite")
 	private List<Specialite> specialites;
+	@Column(name = "disponibilites")
 	@OneToMany
-	@JoinColumn(name = "id_dispo")
 	private List<Disponibilite> dispos;
 	@OneToMany(mappedBy = "praticien")
-	@JoinColumn(name = "id_rdv")
+	@Column(name = "id_rdv")
 	private List<RendezVous> rdvs;
-	@OneToMany
-	@JoinColumn(name = "id_motif")
+	
+	@ManyToMany
 	private List<Motif> motifs;
 	
 	public Praticien() {
@@ -33,11 +33,11 @@ public class Praticien extends Personne{
 		this.motifs = motifs;
 	}
 
-	public List<Specilite> getSpecialites() {
+	public List<Specialite> getSpecialites() {
 		return specialites;
 	}
 
-	public void setSpecialites(List<Specilite> specialites) {
+	public void setSpecialites(List<Specialite> specialites) {
 		this.specialites = specialites;
 	}
 

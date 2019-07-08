@@ -15,7 +15,7 @@ import javax.persistence.TemporalType;
 import javax.persistence.Version;
 
 @Entity
-@Table(name= "rendezVous")
+@Table(name = "rendezVous")
 public class RendezVous {
 
 //Attributs
