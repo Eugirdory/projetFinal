@@ -22,7 +22,7 @@ public class PraticienMotif {
 		return key;
 	}
 
-	public void setKey(PraticienMotif key) {
+	public void setKey(PraticienMotifKey key) {
 		this.key = key;
 	}
 
