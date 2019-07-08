@@ -3,7 +3,7 @@ package formation.sopra.bu.projetDoki.metier;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "Specialité")
+@Table(name = "Specialite")
 public class Specialite {
 
 	@Id
