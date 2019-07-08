@@ -33,7 +33,7 @@ public class Patient extends Personne {
 			@AttributeOverride(name = "ville", column = @Column(name = "ville_patient", length = 150)),
 			@AttributeOverride(name = "code", column = @Column(name = "code_patient", length = 150))})
 	private Adresse domicile;
-	@OneToMany (mappedBy = "Patient")
+	@OneToMany (mappedBy = "patient")
 	@Column(name = "rendez_vous_patient")
 	private List <RendezVous> rdvs;
 	
