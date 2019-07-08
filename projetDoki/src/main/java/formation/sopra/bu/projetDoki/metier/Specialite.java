@@ -4,6 +4,10 @@ import java.util.List;
 
 import javax.persistence.*;
 
+import com.fasterxml.jackson.annotation.JsonView;
+
+import formation.sopra.bu.projetDoki.view.*;
+
 @Entity
 @Table(name = "Specialite")
 public class Specialite {
@@ -11,12 +15,14 @@ public class Specialite {
 	@Id
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "seqSpe")
 	@SequenceGenerator(name = "seqSpe", sequenceName = "sequence_specialité",initialValue = 1, allocationSize = 1)
+	@JsonView(JsonViews.Common.class)
 	private Integer id;
 	@Column(name = "libele")
 	private String libele;
 	
 	@OneToOne
 	@JoinColumn(name = "id_praticien")
+	@JsonView(JsonViews.Common.class)
 	private Praticien praticien;
 	
 	@OneToMany(mappedBy = "key.specialite")
