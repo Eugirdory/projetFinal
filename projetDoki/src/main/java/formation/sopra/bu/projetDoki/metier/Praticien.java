@@ -25,7 +25,7 @@ public class Praticien extends Personne{
 	public Praticien() {
 	}
 
-	public Praticien(List<Specilite> specialites, List<Disponibilite> dispos, List<RendezVous> rdvs,
+	public Praticien(List<Specialite> specialites, List<Disponibilite> dispos, List<RendezVous> rdvs,
 			List<Motif> motifs) {
 		this.specialites = specialites;
 		this.dispos = dispos;
