@@ -13,13 +13,13 @@ import formation.sopra.bu.projetDoki.metier.Specialite;
 
 public interface PraticienRepository extends JpaRepository <Praticien, Integer>{
 	
-	@Query("select p from Praticien p where p.specialite=:specialite")
-    public Optional<Praticien> findAllBySpecialite (@Param("specialite") Specialite specialite);
+	@Query("select p from Praticien p left join fetch p.praticienSpe where p.specialite=:specialite")
+    public Optional<Praticien> findBySpecialite (@Param("specialite") Specialite specialite);
 	
 	public List<Praticien> findByNomContaining (String prenom);
 	
     public List<Praticien> findByPrenomContaining (String prenom);
 	
-	@Query("select p from Praticien p where p.cabinet.ville=:lieu")
-    public Optional<Praticien> findAllByVille (@Param("lieu") String ville);
+	@Query("select p from Praticien p left join fetch p.dispos where p.dispos.cabinet.ville=:lieu")
+    public Optional<Praticien> findByVille (@Param("lieu") String ville);
 }
