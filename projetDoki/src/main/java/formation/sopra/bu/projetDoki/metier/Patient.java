@@ -45,14 +45,6 @@ public class Patient extends Personne {
 		this.domicile = domicile;
 		this.rdvs = rdvs;
 	}
-	
-
-	public Patient(Date dateNaissance, Adresse domicile, List<RendezVous> rdvs) {
-		super();
-		this.dateNaissance = dateNaissance;
-		this.domicile = domicile;
-		this.rdvs = rdvs;
-	}
 
 	public Date getDateNaissance() {
 		return dateNaissance;
