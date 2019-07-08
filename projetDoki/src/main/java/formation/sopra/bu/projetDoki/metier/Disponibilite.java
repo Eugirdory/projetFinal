@@ -14,6 +14,8 @@ import javax.persistence.TemporalType;
 
 import com.fasterxml.jackson.annotation.JsonView;
 
+import formation.sopra.bu.projetDoki.view.JsonViews;
+
 @Entity
 public class Disponibilite {
 	

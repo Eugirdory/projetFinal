@@ -7,6 +7,8 @@ import javax.persistence.SequenceGenerator;
 
 import com.fasterxml.jackson.annotation.JsonView;
 
+import formation.sopra.bu.projetDoki.view.JsonViews;
+
 @Embeddable
 public class Adresse {
 	@Column(name = "numero")
