@@ -1,5 +1,6 @@
 package formation.sopra.bu.projetDoki.repository;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -15,11 +16,9 @@ public interface PraticienRepository extends JpaRepository <Praticien, Integer>{
 	@Query("select p from Praticien p where p.specialite=:specialite")
     public Optional<Praticien> findAllBySpecialite (@Param("specialite") Specialite specialite);
 	
-	@Query("select p from Praticien p where p.nom=:nom")
-    public Optional<Praticien> findAllByNom (@Param("nom") String nom);
+	public List<Praticien> findByNomContaining (String prenom);
 	
-	@Query("select p from Praticien p where p.prenom=:prenom")
-    public Optional<Praticien> findAllByPrenom (@Param("prenom") String prenom);
+    public List<Praticien> findByPrenomContaining (String prenom);
 	
 	@Query("select p from Praticien p where p.cabinet.ville=:lieu")
     public Optional<Praticien> findAllByVille (@Param("lieu") String ville);
