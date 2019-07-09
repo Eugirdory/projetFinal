@@ -11,6 +11,8 @@ import formation.sopra.bu.projetDoki.view.JsonViews;
 
 @Embeddable
 public class Adresse {
+	
+//Attributs
 	@Column(name = "numero")
 	@JsonView(JsonViews.Common.class)
 	private Integer numero;
@@ -19,7 +21,7 @@ public class Adresse {
 	@JsonView(JsonViews.Common.class)
 	private String rue;
 	
-	@Column (name = "codePostal")
+	@Column (name = "code_postal")
 	@JsonView(JsonViews.Common.class)
 	private String cp;
 	
@@ -27,11 +29,11 @@ public class Adresse {
 	@JsonView(JsonViews.Common.class)
 	private String ville;
 	
-	@Column (name ="code")
+	@Column (name ="code_acces")
 	@JsonView(JsonViews.Common.class)
 	private String code; 
 	
-	
+//Constructeur
 	public Adresse() {}
 
 
@@ -44,7 +46,7 @@ public class Adresse {
 		this.code = code;
 	}
 	
-
+//Getters & Setters
 	public Integer getNumero() {
 		return numero;
 	}
@@ -92,7 +94,6 @@ public class Adresse {
 
 	public void setCode(String code) {
 		this.code = code;
-	}
-	
+	}	
 	
 }
