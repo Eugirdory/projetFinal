@@ -15,6 +15,10 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.persistence.Version;
 
+import com.fasterxml.jackson.annotation.JsonView;
+
+import formation.sopra.bu.projetDoki.view.JsonViews;
+
 @Entity
 @Table(name = "rendezVous")
 public class RendezVous {
@@ -24,23 +28,29 @@ public class RendezVous {
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "seqRendezVous")
 	@SequenceGenerator(name = "seqRendezVous", sequenceName = "seq_rendezVous", initialValue = 1, allocationSize = 1)
 	@Column(name = "id_rendezVous")
+	@JsonView(JsonViews.Common.class)
 	private Integer id;
 	
 	@Column(name = "date_rendezVous")
 	@Temporal(TemporalType.DATE)
+	@JsonView(JsonViews.Common.class)
 	private Date dateRdv;
 	@Column(name = "heure_rendezVous")
 	@Temporal(TemporalType.TIME)
+	@JsonView(JsonViews.Common.class)
 	private Date heureRdv;
 	
 	@ManyToOne
 	@JoinColumn(name = "motif_id")
+	@JsonView(JsonViews.Common.class)
 	Motif motif;
 	@ManyToOne
 	@JoinColumn(name = "patient_id")
+	@JsonView(JsonViews.RdvAvecPatient.class)
 	Patient patient;
 	@ManyToOne
 	@JoinColumn(name = "praticien_id")
+	@JsonView(JsonViews.RdvAvecPraticien.class)
 	Praticien praticien;
 	
 	@Version
