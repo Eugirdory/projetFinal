@@ -9,6 +9,7 @@ import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.SequenceGenerator;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
@@ -20,7 +21,8 @@ import formation.sopra.bu.projetDoki.view.JsonViews;
 public class Disponibilite {
 	
 	@Id
-	@GeneratedValue (strategy = GenerationType.SEQUENCE)
+	@GeneratedValue (strategy = GenerationType.SEQUENCE, generator = "seqDispo")
+	@SequenceGenerator(name = "seqDispo", sequenceName = "sequence_disponibilite",initialValue = 1, allocationSize = 1)
 	@JsonView(JsonViews.Common.class)
 	private Integer idDispo; 
 	
