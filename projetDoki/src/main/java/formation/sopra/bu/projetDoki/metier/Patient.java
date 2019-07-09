@@ -16,6 +16,10 @@ import javax.persistence.TemporalType;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
+import com.fasterxml.jackson.annotation.JsonView;
+
+import formation.sopra.bu.projetDoki.view.JsonViews;
+
 @Entity
 @Table(name = "patient")
 @DiscriminatorValue("patient")
@@ -24,6 +28,7 @@ public class Patient extends Personne {
 	@Column(name = "date_naissance")
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	@Temporal(TemporalType.DATE)
+	@JsonView(JsonViews.Common.class)
 	private Date dateNaissance;
 	@Embedded
 	@AttributeOverrides({ @AttributeOverride(name = "numero", column = @Column(name = "numero_patient")),
@@ -31,9 +36,11 @@ public class Patient extends Personne {
 			@AttributeOverride(name = "codePostal", column = @Column(name = "code_postal_patient", length = 5)),
 			@AttributeOverride(name = "ville", column = @Column(name = "ville_patient", length = 150)),
 			@AttributeOverride(name = "code", column = @Column(name = "code_patient", length = 150)) })
+	@JsonView(JsonViews.Common.class)
 	private Adresse domicile;
 	@OneToMany(mappedBy = "patient")
 	@Column(name = "rendez_vous_avec_patient")
+	@JsonView(JsonViews.PatientAvecRdv.class)
 	private List<RendezVous> rdvs;
 
 //Constructeurs

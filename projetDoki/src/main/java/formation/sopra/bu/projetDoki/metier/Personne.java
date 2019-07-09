@@ -18,6 +18,10 @@ import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 import javax.persistence.Version;
 
+import com.fasterxml.jackson.annotation.JsonView;
+
+import formation.sopra.bu.projetDoki.view.JsonViews;
+
 @Entity
 @Table(name = "personne")
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
@@ -27,17 +31,23 @@ public abstract class Personne {
 //Attributs	
 	@Id
 	@Column(name = "username")
+	@JsonView(JsonViews.Common.class)
 	private String username;
 	@Column(name = "nom")
+	@JsonView(JsonViews.Common.class)
 	private String nom;
 	@Column(name = "prenom")
+	@JsonView(JsonViews.Common.class)
 	private String prenom;
 	@Column(name = "mail")
+	@JsonView(JsonViews.Common.class)
 	private String mail;
 	@Column(name = "telephone")
+	@JsonView(JsonViews.Common.class)
 	private String telephone;
 	@Column(name = "civilite")
 	@Enumerated(EnumType.STRING)
+	@JsonView(JsonViews.Common.class)
 	private Civilite civilite;
 	
 	@Column(name = "password")

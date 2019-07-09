@@ -16,10 +16,11 @@ public class Specialite {
 	@Id
 	@SequenceGenerator(name = "seqSpecialite", sequenceName = "seq_specialite", initialValue = 1, allocationSize = 1)
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "seqSpecialite")
-	@JsonView(JsonViews.Common.class)
 	@Column(name = "id_specialite")
+	@JsonView(JsonViews.Common.class)
 	private Integer id;
 	@Column(name = "libelle")
+	@JsonView(JsonViews.Common.class)
 	private String libelle;
 
 	@Version
