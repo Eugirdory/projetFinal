@@ -25,8 +25,9 @@ public abstract class Personne {
 
 	
 	@Id
-	private String username;
 	@Column(name = "username")
+	private String username;
+	@Column(name = "nom")
 	private String nom;
 	@Column(name = "prenom")
 	private String prenom;
