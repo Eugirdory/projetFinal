@@ -30,7 +30,7 @@ import formation.sopra.bu.projetDoki.view.JsonViews;
 
 @RestController
 @RequestMapping("/rest/patient")
-@CrossOrigin(origins="*")
+//@CrossOrigin(origins="*")
 public class PatientRestController {
 	
 	@Autowired
