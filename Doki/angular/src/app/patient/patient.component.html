@@ -1,0 +1,23 @@
+<div xmlns="http://www.w3.org/1999/html">
+
+  <h3>Inscription</h3>
+
+  <div>
+
+    Prénom : <input [(ngModel)]="patient.prenom"><br/>
+    Nom : <input [(ngModel)]="patient.nom"><br/><br>
+
+    <p>Adresse :</p>
+    N°: <input type="number"[(ngModel)]="patient.domicile.numero"><br/>
+    Rue : <input [(ngModel)]="patient.domicile.rue"><br/>
+    Code postal : <input [(ngModel)]="patient.domicile.cp"><br/>
+    Ville : <input [(ngModel)]="patient.domicile.ville"><br/><br>
+
+    Date de naissance : <input type="date" [(ngModel)]="patient.dateNaissance"><br/><br>
+    Téléphone : <input [(ngModel)]="patient.telephone"><br/>
+    Email :  <input [(ngModel)]="patient.mail"><br/><br>
+    <button (click)="add()">Valider</button>
+  </div>
+
+</div>
+
