@@ -12,6 +12,10 @@ import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 import javax.persistence.Version;
 
+import com.fasterxml.jackson.annotation.JsonView;
+
+import formation.sopra.bu.projetDoki.view.JsonViews;
+
 @Entity
 @Table(name = "motif")
 public class Motif {
@@ -21,11 +25,14 @@ public class Motif {
 	@SequenceGenerator(name = "seqMotif", sequenceName = "seq_motif", initialValue = 1, allocationSize = 1)
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "seqMotif")
 	@Column(name = "id_motif")
+	@JsonView(JsonViews.Common.class)
 	private Integer id;
 	
 	@Column(name = "libelle")
+	@JsonView(JsonViews.Common.class)
 	private String libelle;
 	@Column (name = "duree")
+	@JsonView(JsonViews.Common.class)
 	private Integer duree;
 	
 	@Version 

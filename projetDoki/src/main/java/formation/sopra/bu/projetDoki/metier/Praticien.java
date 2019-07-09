@@ -28,6 +28,7 @@ public class Praticien extends Personne {
 
 	@OneToMany(mappedBy = "praticien") // , fetch = FetchType.LAZY) ???
 	@Column(name = "rdvs_avec-patient")
+	@JsonView(JsonViews.PraticienAvecRdv.class)
 	private List<RendezVous> rdvs;
 
 //Constructeurs

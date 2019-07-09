@@ -21,7 +21,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
 	public void configure(HttpSecurity http) throws Exception{
 		http.authorizeRequests().antMatchers("/rest/praticien").hasRole("PRATICIEN").and().httpBasic().and().csrf().disable();
 		http.authorizeRequests().antMatchers("/rest/patient").hasRole("PATIENT").and().httpBasic().and().csrf().disable();
-		http.authorizeRequests().antMatchers("/").permitAll();
+		//http.authorizeRequests().antMatchers("/rest/**").permitAll();
 		http.authorizeRequests().antMatchers("/rest/**").hasRole("ADMIN").and().httpBasic().and().csrf().disable();
 		
 	}

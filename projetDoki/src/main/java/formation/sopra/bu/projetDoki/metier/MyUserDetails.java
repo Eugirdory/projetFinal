@@ -17,6 +17,7 @@ public class MyUserDetails implements UserDetails{
 	}
 
 	public MyUserDetails(Personne personne) {
+		super();
 		this.personne = personne;
 	}
 
