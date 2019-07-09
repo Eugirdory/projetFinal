@@ -46,6 +46,6 @@ export class Disponibilite {
     this._heureF = heureF;
     this._cabinet = cabinet;
 
-
+  }
 
 }
