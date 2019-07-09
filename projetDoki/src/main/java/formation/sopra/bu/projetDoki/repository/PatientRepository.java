@@ -10,6 +10,6 @@ import formation.sopra.bu.projetDoki.metier.Patient;
 
 public interface PatientRepository extends JpaRepository<Patient, Integer>{
 
-	@Query("select p from Patient p left join fetch p.rdvs where p.id=:id")
-    public Optional<Patient> findByIdWithRendezVous(@Param("id") Integer id);
+	//@Query("select p from Patient p left join fetch p.rdvs where p.id=:id")
+    //public Optional<Patient> findByIdWithRendezVous(@Param("id") Integer id);
 }

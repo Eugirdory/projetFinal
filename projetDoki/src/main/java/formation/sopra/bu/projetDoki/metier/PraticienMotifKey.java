@@ -11,10 +11,10 @@ public class PraticienMotifKey implements Serializable {
 
 //Attributs
 	@ManyToOne
-	@JoinColumn(name = "join_praticien_id")
+	@JoinColumn(name = "praticien_id")
 	private Praticien praticien;
 	@ManyToOne
-	@JoinColumn(name = "join_motif_id")
+	@JoinColumn(name = "motif_id")
 	private Motif motif;
 
 	

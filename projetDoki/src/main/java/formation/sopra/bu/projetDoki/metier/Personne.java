@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.DiscriminatorColumn;
+import javax.persistence.DiscriminatorType;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
@@ -20,10 +21,10 @@ import javax.persistence.Version;
 @Entity
 @Table(name = "personne")
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
-@DiscriminatorColumn(name = "TYPE_PERSONNE")
+@DiscriminatorColumn(name = "TYPE_PERSONNE", discriminatorType = DiscriminatorType.STRING)
 public abstract class Personne {
 
-	
+//Attributs	
 	@Id
 	@Column(name = "username")
 	private String username;
@@ -46,11 +47,40 @@ public abstract class Personne {
 	private List<UserRole> roles;
 	@Version
 	private int version;
-	
+
+//Constructeurs
 	public Personne() {
 	}
+	
+public Personne(String username, String nom, String prenom, String telephone, Civilite civilite, String password,
+		boolean enable, List<UserRole> roles, int version) {
+	super();
+	this.username = username;
+	this.nom = nom;
+	this.prenom = prenom;
+	this.telephone = telephone;
+	this.civilite = civilite;
+	this.password = password;
+	this.enable = enable;
+	this.roles = roles;
+	this.version = version;
+}
 
+public Personne(String username, String nom, String prenom, String mail, String telephone, Civilite civilite,
+		String password, boolean enable, List<UserRole> roles, int version) {
+	this.username = username;
+	this.nom = nom;
+	this.prenom = prenom;
+	this.mail = mail;
+	this.telephone = telephone;
+	this.civilite = civilite;
+	this.password = password;
+	this.enable = enable;
+	this.roles = roles;
+	this.version = version;
+}
 
+//Getters & Setters	
 	public String getNom() {
 		return nom;
 	}
@@ -134,7 +164,7 @@ public abstract class Personne {
 	}
 
 
-	@Override
+//HashCode & Equals
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
@@ -159,8 +189,5 @@ public abstract class Personne {
 			return false;
 		return true;
 	}
-	
-	
-
-	
+		
 }

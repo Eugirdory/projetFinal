@@ -4,20 +4,32 @@ import javax.persistence.*;
 
 
 @Entity
-@Table(name = "join_praticien_specialite")
-public class PraticienSpe {
+@Table(name = "praticien_specialite")
+public class PraticienSpecialite {
+	
+//Attributs
 	@EmbeddedId
-	private PraticienSpeKey key;
-
-	public PraticienSpeKey getKey() {
-		return key;
+	private PraticienSpecialiteKey key;
+	
+//Constructeurs
+	public PraticienSpecialite() {
+	
 	}
-
-	public void setKey(PraticienSpeKey key) {
+	
+	public PraticienSpecialite(PraticienSpecialiteKey key) {
 		this.key = key;
 	}
 
-	@Override
+//Getter & Setter
+	public PraticienSpecialiteKey getKey() {
+		return key;
+	}
+
+	public void setKey(PraticienSpecialiteKey key) {
+		this.key = key;
+	}
+
+//Hashcode & Equals
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
@@ -25,7 +37,6 @@ public class PraticienSpe {
 		return result;
 	}
 
-	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
 			return true;
@@ -33,7 +44,7 @@ public class PraticienSpe {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		PraticienSpe other = (PraticienSpe) obj;
+		PraticienSpecialite other = (PraticienSpecialite) obj;
 		if (key == null) {
 			if (other.key != null)
 				return false;

@@ -7,6 +7,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
@@ -21,7 +22,7 @@ public class RendezVous {
 //Attributs
 	@Id
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "seqRendezVous")
-	@SequenceGenerator(name = "seqRendezVous", sequenceName = "seq_rendezVous", initialValue = 100, allocationSize = 1)
+	@SequenceGenerator(name = "seqRendezVous", sequenceName = "seq_rendezVous", initialValue = 1, allocationSize = 1)
 	@Column(name = "id_rendezVous")
 	private Integer id;
 	
@@ -33,10 +34,13 @@ public class RendezVous {
 	private Date heureRdv;
 	
 	@ManyToOne
+	@JoinColumn(name = "motif_id")
 	Motif motif;
 	@ManyToOne
+	@JoinColumn(name = "patient_id")
 	Patient patient;
 	@ManyToOne
+	@JoinColumn(name = "praticien_id")
 	Praticien praticien;
 	
 	@Version
@@ -44,11 +48,9 @@ public class RendezVous {
 
 //Constructeurs
 	public RendezVous() {
-		super();
 	}
 
 	public RendezVous(Date dateRdv, Date heureRdv, Motif motif, Patient patient, Praticien praticien, int version) {
-		super();
 		this.dateRdv = dateRdv;
 		this.heureRdv = heureRdv;
 		this.motif = motif;
@@ -69,7 +71,7 @@ public class RendezVous {
 		this.version = version;
 	}
 
-	//Getters & Setters
+//Getters & Setters
 	public Integer getId() {
 		return id;
 	}

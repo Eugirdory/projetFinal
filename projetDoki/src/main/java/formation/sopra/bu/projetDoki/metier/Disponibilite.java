@@ -2,6 +2,9 @@ package formation.sopra.bu.projetDoki.metier;
 
 import java.util.Date;
 
+import javax.persistence.AttributeOverride;
+import javax.persistence.AttributeOverrides;
+import javax.persistence.Column;
 import javax.persistence.Embedded;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
@@ -19,54 +22,64 @@ import formation.sopra.bu.projetDoki.view.JsonViews;
 
 @Entity
 public class Disponibilite {
-	
+
+//Attributs
 	@Id
-	@GeneratedValue (strategy = GenerationType.SEQUENCE, generator = "seqDispo")
-	@SequenceGenerator(name = "seqDispo", sequenceName = "sequence_disponibilite",initialValue = 1, allocationSize = 1)
+	@SequenceGenerator(name = "seqDispo", sequenceName = "seq_dispo", initialValue = 1, allocationSize = 1)
+	@GeneratedValue(strategy = GenerationType.SEQUENCE)
 	@JsonView(JsonViews.Common.class)
-	private Integer idDispo; 
-	
-	@Enumerated(EnumType.ORDINAL)
+	@Column(name = "id_dispo")
+	private Integer id;
+
+	@Enumerated(EnumType.STRING)
 	@JsonView(JsonViews.Common.class)
+	@Column(name = "jour")
 	private Jour jour;
-	
-	@Temporal(TemporalType.TIMESTAMP)
+
+	@Temporal(TemporalType.TIME)
 	@JsonView(JsonViews.Common.class)
 	private Date heureDebut;
-	
-	@Temporal(TemporalType.TIMESTAMP)
+
+	@Temporal(TemporalType.TIME)
 	@JsonView(JsonViews.Common.class)
 	private Date heureFin;
-	
+
 	@Embedded
 	@JsonView(JsonViews.Common.class)
+	@AttributeOverrides({ @AttributeOverride(name = "numero", column = @Column(name = "numero_rue_cabinet")),
+			@AttributeOverride(name = "rue", column = @Column(name = "rue_cabinet", length = 150)),
+			@AttributeOverride(name = "codePostal", column = @Column(name = "code_postal_cabinet", length = 5)),
+			@AttributeOverride(name = "ville", column = @Column(name = "ville_cabinet", length = 150)),
+			@AttributeOverride(name = "code", column = @Column(name = "code_cabinet")) })
 	private Adresse cabinet;
-	
-	public Disponibilite() {}
+
+//Constructeur
+	public Disponibilite() {
+	}
 
 	public Disponibilite(Integer idDispo, Jour jour, Date heureDebut, Date heureFin, Adresse cabinet) {
 		super();
-		this.idDispo = idDispo;
+		this.id = id;
 		this.jour = jour;
 		this.heureDebut = heureDebut;
 		this.heureFin = heureFin;
 		this.cabinet = cabinet;
-	} 
-	
+	}
+
 	public Disponibilite(Jour jour, Date heureDebut, Date heureFin, Adresse cabinet) {
-		super();
 		this.jour = jour;
 		this.heureDebut = heureDebut;
 		this.heureFin = heureFin;
 		this.cabinet = cabinet;
 	}
 
-	public Integer getIdDispo() {
-		return idDispo;
+// Getters & Setters
+	public Integer getId() {
+		return id;
 	}
 
-	public void setIdDispo(Integer idDispo) {
-		this.idDispo = idDispo;
+	public void setId(Integer id) {
+		this.id = id;
 	}
 
 	public Jour getJour() {
@@ -101,15 +114,14 @@ public class Disponibilite {
 		this.cabinet = cabinet;
 	}
 
-	@Override
+// HashCode & Equals
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + ((idDispo == null) ? 0 : idDispo.hashCode());
+		result = prime * result + ((id == null) ? 0 : id.hashCode());
 		return result;
 	}
 
-	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
 			return true;
@@ -118,14 +130,11 @@ public class Disponibilite {
 		if (getClass() != obj.getClass())
 			return false;
 		Disponibilite other = (Disponibilite) obj;
-		if (idDispo == null) {
-			if (other.idDispo != null)
+		if (id == null) {
+			if (other.id != null)
 				return false;
-		} else if (!idDispo.equals(other.idDispo))
+		} else if (!id.equals(other.id))
 			return false;
 		return true;
-	} 
-	
-	
-
+	}
 }

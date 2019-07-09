@@ -12,10 +12,19 @@ import javax.persistence.TemporalType;
 @Entity
 @Table(name = "join_praticien_motif")
 public class PraticienMotif {
-	
+
 //Attributs
 	@EmbeddedId
 	private PraticienMotifKey key;
+
+// Constructeur
+	public PraticienMotif() {
+
+	}
+
+	public PraticienMotif(PraticienMotifKey key) {
+		this.key = key;
+	}
 
 //Getters & Setters
 	public PraticienMotifKey getKey() {
@@ -26,6 +35,7 @@ public class PraticienMotif {
 		this.key = key;
 	}
 
+//HashCode
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
@@ -33,7 +43,6 @@ public class PraticienMotif {
 		return result;
 	}
 
-	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
 			return true;

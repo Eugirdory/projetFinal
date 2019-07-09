@@ -1,10 +1,13 @@
 package formation.sopra.bu.projetDoki.metier;
 
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 import javax.persistence.Version;
@@ -15,8 +18,8 @@ public class Motif {
 	
 //Attributs
 	@Id
+	@SequenceGenerator(name = "seqMotif", sequenceName = "seq_motif", initialValue = 1, allocationSize = 1)
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "seqMotif")
-	@SequenceGenerator(name = "seqMotif", sequenceName = "seq_motif", initialValue = 100, allocationSize = 1)
 	@Column(name = "id_motif")
 	private Integer id;
 	
@@ -27,6 +30,9 @@ public class Motif {
 	
 	@Version 
 	private int version;
+	
+	@OneToMany(mappedBy = "key.motif")
+	private List<PraticienMotif> motifs;
 	
 //Constructeur
 	public Motif() {

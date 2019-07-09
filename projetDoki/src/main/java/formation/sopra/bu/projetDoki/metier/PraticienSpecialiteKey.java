@@ -5,24 +5,25 @@ import java.io.*;
 import javax.persistence.*;
 
 @Embeddable
-public class PraticienSpeKey implements Serializable{
-
+public class PraticienSpecialiteKey implements Serializable{
+	
+//Attributs
 	@ManyToOne
-	@JoinColumn(name = "join_praticien_id")
+	@JoinColumn(name = "praticien_id")
 	private Praticien praticien;
 	@ManyToOne
-	@JoinColumn(name = "join_specialite_id")
+	@JoinColumn(name = "specialite_id")
 	private Specialite specialite;
 	
-	//constructor
-	public PraticienSpeKey() {
+//Constructeur
+	public PraticienSpecialiteKey() {
 	}
-	public PraticienSpeKey(Praticien praticien, Specialite specialite) {
+	public PraticienSpecialiteKey(Praticien praticien, Specialite specialite) {
 		this.praticien = praticien;
 		this.specialite = specialite;
 	}
 	
-	//getter et setter
+//Getter & Setter
 	
 	public Praticien getPraticien() {
 		return praticien;
@@ -36,7 +37,8 @@ public class PraticienSpeKey implements Serializable{
 	public void setSpecialite(Specialite specialite) {
 		this.specialite = specialite;
 	}
-	//hashcode et equals
+	
+//hashcode et equals
 	
 	@Override
 	public int hashCode() {
@@ -54,7 +56,7 @@ public class PraticienSpeKey implements Serializable{
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		PraticienSpeKey other = (PraticienSpeKey) obj;
+		PraticienSpecialiteKey other = (PraticienSpecialiteKey) obj;
 		if (praticien == null) {
 			if (other.praticien != null)
 				return false;
@@ -67,10 +69,5 @@ public class PraticienSpeKey implements Serializable{
 			return false;
 		return true;
 	}
-	
-
-	
-	
-	
 	
 }

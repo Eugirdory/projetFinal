@@ -11,43 +11,55 @@ import formation.sopra.bu.projetDoki.view.JsonViews;
 @Entity
 @Table(name = "praticien")
 @DiscriminatorValue("praticien")
-public class Praticien extends Personne{
-	
-	@OneToMany
-	@Column(name = "Specialite")
-	@JsonView(JsonViews.PraticienAvecSpe.class)
-	private List<Specialite> specialites;
-	
+public class Praticien extends Personne {
+
+//Attributs
 	@OneToMany(mappedBy = "key.praticien")
-	private List<PraticienSpe> praticienSpe;
-	
+	@Column(name = "specialite")
+	@JsonView(JsonViews.PraticienAvecSpe.class)
+	private List<PraticienSpecialite> specialites;
+
+	@OneToMany(mappedBy = "key.praticien")
+	private List<PraticienMotif> motifs;
+
 	@Column(name = "disponibilites")
 	@OneToMany
 	private List<Disponibilite> dispos;
-	@OneToMany(mappedBy = "praticien")
-	@Column(name = "id_rdv")
+
+	@OneToMany(mappedBy = "praticien") // , fetch = FetchType.LAZY) ???
+	@Column(name = "rdvs_avec-patient")
 	private List<RendezVous> rdvs;
-	
-	@ManyToMany
-	private List<Motif> motifs;
-	
+
+//Constructeurs
 	public Praticien() {
 	}
 
-	public Praticien(List<Specialite> specialites, List<Disponibilite> dispos, List<RendezVous> rdvs,
-			List<Motif> motifs) {
-		this.specialites = specialites;
-		this.dispos = dispos;
-		this.rdvs = rdvs;
-		this.motifs = motifs;
+public Praticien(String username, String nom, String prenom, String telephone, Civilite civilite, String password,
+		boolean enable, List<UserRole> roles, int version, List<PraticienSpecialite> specialites,
+		List<PraticienMotif> motifs, List<Disponibilite> dispos, List<RendezVous> rdvs) {
+	super(username, nom, prenom, telephone, civilite, password, enable, roles, version);
+	this.specialites = specialites;
+	this.motifs = motifs;
+	this.dispos = dispos;
+	this.rdvs = rdvs;
+}
+
+//Getters & Setters
+	
+	public List<PraticienMotif> getMotifs() {
+		return motifs;
 	}
 
-	public List<Specialite> getSpecialites() {
+	public List<PraticienSpecialite> getSpecialites() {
 		return specialites;
 	}
 
-	public void setSpecialites(List<Specialite> specialites) {
+	public void setSpecialites(List<PraticienSpecialite> specialites) {
 		this.specialites = specialites;
+	}
+
+	public void setMotifs(List<PraticienMotif> motifs) {
+		this.motifs = motifs;
 	}
 
 	public List<Disponibilite> getDispos() {
@@ -66,14 +78,46 @@ public class Praticien extends Personne{
 		this.rdvs = rdvs;
 	}
 
-	public List<Motif> getMotifs() {
-		return motifs;
+//HashCode & Equals
+	public int hashCode() {
+		final int prime = 31;
+		int result = super.hashCode();
+		result = prime * result + ((dispos == null) ? 0 : dispos.hashCode());
+		result = prime * result + ((motifs == null) ? 0 : motifs.hashCode());
+		result = prime * result + ((rdvs == null) ? 0 : rdvs.hashCode());
+		result = prime * result + ((specialites == null) ? 0 : specialites.hashCode());
+		return result;
 	}
 
-	public void setMotifs(List<Motif> motifs) {
-		this.motifs = motifs;
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (!super.equals(obj))
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Praticien other = (Praticien) obj;
+		if (dispos == null) {
+			if (other.dispos != null)
+				return false;
+		} else if (!dispos.equals(other.dispos))
+			return false;
+		if (motifs == null) {
+			if (other.motifs != null)
+				return false;
+		} else if (!motifs.equals(other.motifs))
+			return false;
+		if (rdvs == null) {
+			if (other.rdvs != null)
+				return false;
+		} else if (!rdvs.equals(other.rdvs))
+			return false;
+		if (specialites == null) {
+			if (other.specialites != null)
+				return false;
+		} else if (!specialites.equals(other.specialites))
+			return false;
+		return true;
 	}
-	
-	//TODO Hastag and equals
-	
+
 }
