@@ -20,4 +20,13 @@ public class JsonViews {
 	public static class RdvAvecPatient extends Common {
 
 	};
+	
+	public static class PraticienAvecSpe extends Common {
+
+	};
+
+	public static class SpeAvecPraticien extends Common {
+
+	};
+
 }
