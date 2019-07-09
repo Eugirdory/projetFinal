@@ -4,6 +4,10 @@ import java.util.List;
 
 import javax.persistence.*;
 
+import com.fasterxml.jackson.annotation.JsonView;
+
+import formation.sopra.bu.projetDoki.view.JsonViews;
+
 @Entity
 @Table(name = "praticien")
 @DiscriminatorValue("praticien")
@@ -11,7 +15,12 @@ public class Praticien extends Personne{
 	
 	@OneToMany
 	@Column(name = "Specialite")
+	@JsonView(JsonViews.PraticienAvecSpe.class)
 	private List<Specialite> specialites;
+	
+	@OneToMany(mappedBy = "key.praticien")
+	private List<PraticienSpe> praticienSpe;
+	
 	@Column(name = "disponibilites")
 	@OneToMany
 	private List<Disponibilite> dispos;
