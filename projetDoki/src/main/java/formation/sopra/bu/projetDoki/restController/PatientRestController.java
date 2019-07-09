@@ -67,17 +67,17 @@ public class PatientRestController {
     
     @GetMapping(value= {"/{id}"})
     @JsonView(JsonViews.Common.class)
-    public ResponseEntity<Patient> findById(@PathVariable(name="id")Integer id){
+    public ResponseEntity<Patient> findById(@PathVariable(name="id")String id){
         return findPatientById(id);
     }
     
     @GetMapping(value= {"/{id}/rdvs"})
     @JsonView(JsonViews.PatientAvecRdv.class)
-    public ResponseEntity<Patient> findByIdAvecRdv(@PathVariable(name="id")Integer id){
+    public ResponseEntity<Patient> findByIdAvecRdv(@PathVariable(name="id")String id){
         return findPatientById(id);
     }
     
-    private ResponseEntity<Patient> findPatientById( Integer id){
+    private ResponseEntity<Patient> findPatientById( String id){
         Optional<Patient> opt=patientRepository.findById(id);
         if (opt.isPresent()) {
             return new ResponseEntity<Patient>(opt.get(), HttpStatus.OK);
@@ -86,14 +86,15 @@ public class PatientRestController {
     }
     
     @PutMapping("/{id}")
-    public ResponseEntity<Void> Update(@PathVariable(name="id") Integer id,@RequestBody Patient patient){
+    public ResponseEntity<Void> Update(@PathVariable(name="id") String id,@RequestBody Patient patient){
     Optional<Patient> opt = patientRepository.findById(id);
     	if (opt.isPresent()) {
     	Patient patientEnBase=opt.get();
     	patientEnBase.setPrenom((patient.getPrenom()!=null)?patient.getPrenom():patientEnBase.getPrenom());
     	patientEnBase.setNom((patient.getNom()!=null)?patient.getNom():patientEnBase.getNom());
+    	patientEnBase.setMail((patient.getMail()!=null)?patient.getMail():patientEnBase.getMail());
+    	patientEnBase.setTelephone((patient.getTelephone()!=null)?patient.getTelephone():patientEnBase.getTelephone());
     	patientEnBase.setDateNaissance((patient.getDateNaissance()!=null)?patient.getDateNaissance():patientEnBase.getDateNaissance());
-    	patientEnBase.setDomicile((patient.getDomicile()!=null)?patient.getDomicile():patientEnBase.getDomicile());
     	patientEnBase.setDomicile((patient.getDomicile()!=null)?patient.getDomicile():patientEnBase.getDomicile());
     	patientRepository.save(patientEnBase);
       	return new ResponseEntity<>(HttpStatus.OK);
@@ -103,7 +104,7 @@ public class PatientRestController {
 }
 
   @DeleteMapping("/{id}") 
-  public ResponseEntity<Void> delete(@PathVariable(name="id")Integer id){
+  public ResponseEntity<Void> delete(@PathVariable(name="id")String id){
 	  Optional<Patient> opt = patientRepository.findById(id);
   	if (opt.isPresent()) {
   		patientRepository.deleteById(id);
