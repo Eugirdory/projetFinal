@@ -14,7 +14,7 @@ public class Specialite {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "seqSpe")
-	@SequenceGenerator(name = "seqSpe", sequenceName = "sequence_specialité",initialValue = 1, allocationSize = 1)
+	@SequenceGenerator(name = "seqSpe", sequenceName = "sequence_specialite",initialValue = 1, allocationSize = 1)
 	@JsonView(JsonViews.Common.class)
 	private Integer id;
 	@Column(name = "libele")
