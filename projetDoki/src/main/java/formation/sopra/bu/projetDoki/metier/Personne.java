@@ -1,5 +1,7 @@
 package formation.sopra.bu.projetDoki.metier;
 
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.DiscriminatorColumn;
 import javax.persistence.Entity;
@@ -10,6 +12,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
+import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 import javax.persistence.Version;
@@ -22,10 +25,8 @@ public abstract class Personne {
 
 	
 	@Id
-	@SequenceGenerator(name = "seqPersonne", sequenceName = "seq_personne", initialValue = 0, allocationSize = 1)
-	@GeneratedValue(strategy = GenerationType.SEQUENCE)
-	private Integer id;
-	@Column(name = "nom")
+	private String username;
+	@Column(name = "username")
 	private String nom;
 	@Column(name = "prenom")
 	private String prenom;
@@ -36,19 +37,18 @@ public abstract class Personne {
 	@Column(name = "civilite")
 	@Enumerated(EnumType.STRING)
 	private Civilite civilite;
+	
+	@Column(name = "password")
+	private String password;
+	private boolean enable;
+	@OneToMany(mappedBy="personne")
+	private List<UserRole> roles;
 	@Version
 	private int version;
 	
 	public Personne() {
 	}
 
-	public Integer getId() {
-		return id;
-	}
-
-	public void setId(Integer id) {
-		this.id = id;
-	}
 
 	public String getNom() {
 		return nom;
@@ -90,6 +90,39 @@ public abstract class Personne {
 	public void setCivilite(Civilite civilite) {
 		this.civilite = civilite;
 	}
+	
+
+	public String getUsername() {
+		return username;
+	}
+
+	public void setUsername(String username) {
+		this.username = username;
+	}
+
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
+	}
+
+	public boolean isEnable() {
+		return enable;
+	}
+
+	public void setEnable(boolean enable) {
+		this.enable = enable;
+	}
+
+	public List<UserRole> getRoles() {
+		return roles;
+	}
+
+	public void setRoles(List<UserRole> roles) {
+		this.roles = roles;
+	}
 
 	public int getVersion() {
 		return version;
@@ -98,15 +131,16 @@ public abstract class Personne {
 	public void setVersion(int version) {
 		this.version = version;
 	}
-	
-	
+
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + ((id == null) ? 0 : id.hashCode());
+		result = prime * result + ((username == null) ? 0 : username.hashCode());
 		return result;
 	}
+
 
 	@Override
 	public boolean equals(Object obj) {
@@ -117,13 +151,15 @@ public abstract class Personne {
 		if (getClass() != obj.getClass())
 			return false;
 		Personne other = (Personne) obj;
-		if (id == null) {
-			if (other.id != null)
+		if (username == null) {
+			if (other.username != null)
 				return false;
-		} else if (!id.equals(other.id))
+		} else if (!username.equals(other.username))
 			return false;
 		return true;
 	}
+	
+	
 
 	
 }
