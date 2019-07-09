@@ -33,7 +33,7 @@ import formation.sopra.bu.projetDoki.view.JsonViews;
 
 @RestController
 @RequestMapping("/rest/praticien")
-@CrossOrigin(origins="*")
+//@CrossOrigin(origins="*")
 public class PraticienRestController {
 
 		
@@ -45,7 +45,8 @@ public class PraticienRestController {
 	    public ResponseEntity<List<Praticien>> findAll(){
 	        return list();
 	    }
-	    
+		
+		
 	    @JsonView(JsonViews.PraticienAvecRdv.class)
 	    @GetMapping(value= {"/rdvs"})
 	    public ResponseEntity<List<Praticien>> findAllAvecRdv(){
@@ -71,17 +72,17 @@ public class PraticienRestController {
 	    
 	    @GetMapping(value= {"/{id}"})
 	    @JsonView(JsonViews.Common.class)
-	    public ResponseEntity<Praticien> findById(@PathVariable(name="id")Integer id){
+	    public ResponseEntity<Praticien> findById(@PathVariable(name="id")String id){
 	        return findPraticienById(id);
 	    }
 	    
 	    @GetMapping(value= {"/{id}/rdvs"})
 	    @JsonView(JsonViews.PraticienAvecRdv.class)
-	    public ResponseEntity<Praticien> findByIdAvecRdv(@PathVariable(name="id")Integer id){
+	    public ResponseEntity<Praticien> findByIdAvecRdv(@PathVariable(name="id")String id){
 	        return findPraticienById(id);
 	    }
 	    
-	    private ResponseEntity<Praticien> findPraticienById( Integer id){
+	    private ResponseEntity<Praticien> findPraticienById(String id){
 	        Optional<Praticien> opt=praticienRepository.findById(id);
 	        if (opt.isPresent()) {
 	            return new ResponseEntity<Praticien>(opt.get(), HttpStatus.OK);
@@ -90,7 +91,7 @@ public class PraticienRestController {
 	    }
 	    
 	    @PutMapping("/{id}")
-	    public ResponseEntity<Void> Update(@PathVariable(name="id") Integer id,@RequestBody Praticien praticien){
+	    public ResponseEntity<Void> Update(@PathVariable(name="id") String id,@RequestBody Praticien praticien){
 	    Optional<Praticien> opt = praticienRepository.findById(id);
 	    	if (opt.isPresent()) {
 	    	Praticien praticienEnBase=opt.get();
@@ -108,7 +109,7 @@ public class PraticienRestController {
 	}
 
 	  @DeleteMapping("/{id}") 
-	  public ResponseEntity<Void> delete(@PathVariable(name="id")Integer id){
+	  public ResponseEntity<Void> delete(@PathVariable(name="id")String id){
 		  Optional<Praticien> opt = praticienRepository.findById(id);
 	  	if (opt.isPresent()) {
 	  		praticienRepository.deleteById(id);
