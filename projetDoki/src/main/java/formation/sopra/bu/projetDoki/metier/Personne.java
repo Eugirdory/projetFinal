@@ -41,7 +41,7 @@ public abstract class Personne {
 	@Column(name = "password")
 	private String password;
 	private boolean enable;
-	@OneToMany(mappedBy="PERSONNE")
+	@OneToMany(mappedBy="personne")
 	private List<UserRole> roles;
 	@Version
 	private int version;
