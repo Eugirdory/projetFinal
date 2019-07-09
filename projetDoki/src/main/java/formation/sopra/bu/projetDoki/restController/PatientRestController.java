@@ -59,7 +59,7 @@ public class PatientRestController {
         }
         patientRepository.save(patient);
         HttpHeaders headers=new HttpHeaders();
-        URI uri=ucb.path("/rest/patient/{id}").buildAndExpand(patient.getId()).toUri();
+        URI uri=ucb.path("/rest/patient/{id}").buildAndExpand(patient.getUsername()).toUri();
         headers.setLocation(uri);
         
         return new ResponseEntity<>(headers, HttpStatus.CREATED);

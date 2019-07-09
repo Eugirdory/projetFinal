@@ -63,7 +63,7 @@ public class PraticienRestController {
 	        }
 	        praticienRepository.save(praticien);
 	        HttpHeaders headers=new HttpHeaders();
-	        URI uri=ucb.path("/rest/praticien/{id}").buildAndExpand(praticien.getId()).toUri();
+	        URI uri=ucb.path("/rest/praticien/{id}").buildAndExpand(praticien.getUsername()).toUri();
 	        headers.setLocation(uri);
 	        
 	        return new ResponseEntity<>(headers, HttpStatus.CREATED);
