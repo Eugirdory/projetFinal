@@ -8,6 +8,7 @@ import javax.persistence.DiscriminatorType;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -23,7 +24,7 @@ import com.fasterxml.jackson.annotation.JsonView;
 import formation.sopra.bu.projetDoki.view.JsonViews;
 
 @Entity
-@Table(name = "personne")
+@Table(name = "personnes")
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 @DiscriminatorColumn(name = "TYPE_PERSONNE", discriminatorType = DiscriminatorType.STRING)
 public abstract class Personne {
@@ -53,7 +54,7 @@ public abstract class Personne {
 	@Column(name = "password")
 	private String password;
 	private boolean enable;
-	@OneToMany(mappedBy="personne")
+	@OneToMany(mappedBy="personne",fetch = FetchType.LAZY)
 	private List<UserRole> roles;
 	@Version
 	private int version;
