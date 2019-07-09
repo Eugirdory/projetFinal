@@ -1,0 +1,11 @@
+<div class="container">
+  <ul>
+    <li><a class="active" >Acceuil</a></li>
+    <li *ngIf="p!==null"><a >Profil</a></li>
+    <li><a >Contact</a></li>
+    <li *ngIf="p===null" style="float:right"><a [routerLink]="['/login']" routerLinkActive="active" >Connexion</a></li>
+    <li *ngIf="p===null" style="float:right"><a [routerLink]="['/inscription']" routerLinkActive="active">Inscription</a></li>
+    <li *ngIf="p!==null" style="float:right"><a >Déconnexion</a></li>
+  </ul>
+
+</div>
