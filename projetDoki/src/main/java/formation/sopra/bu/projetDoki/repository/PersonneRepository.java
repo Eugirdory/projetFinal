@@ -10,6 +10,6 @@ import formation.sopra.bu.projetDoki.metier.Personne;
 
 public interface PersonneRepository extends JpaRepository<Personne, String>{
 
-	@Query ("select distinct p from Personn p left join fetch p.roles where p.username=:username")
+	@Query ("select distinct p from Personne p left join fetch p.roles where p.username=:username")
 	Optional<Personne> findByIdWithRoles (String username);
 }
