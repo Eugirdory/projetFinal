@@ -1,10 +1,15 @@
 <p>praticien works!</p>
 <div>
-<table class="table">
+  <table class="table">
+    <tr>
+      <th>Username</th>
+      <th>Nom</th>
+      <th>Prenom</th>
+    </tr>
 
-  <tr lignePraticien  [praticien]="p" *ngFor="let p of praticiens">
+    <tr lignePraticien [praticien]="p" *ngFor="let p of praticiens">
 
-  </tr>
-</table>
+    </tr>
+  </table>
 
 </div>
