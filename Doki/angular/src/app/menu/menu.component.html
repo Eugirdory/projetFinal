@@ -1,0 +1,26 @@
+<div class="container">
+
+  <ul>
+    <ng-container *ngIf="!log;else showLogout">
+      <li><a [routerLink]="['/accueil']" class="active">Accueil</a></li>
+      <li><a>Contact</a></li>
+      <li>
+        <app-barre-recherche></app-barre-recherche>
+      </li>
+      <li style="float:right"><a [routerLink]="['/login']" routerLinkActive="active">Connexion</a></li>
+      <li style="float:right"><a [routerLink]="['/inscription']"
+                                                  routerLinkActive="active">Inscription</a></li>
+      <li style="float:right"><a [routerLink]="['/inscriptionPraticien']"
+                                 routerLinkActive="active">Inscription Praticien</a></li>
+    </ng-container>
+
+    <ng-template #showLogout>
+      <li><a [routerLink]="['/accueil']" class="active">Accueil</a></li>
+      <li><a>Contact</a></li>
+      <li><a>Profil</a></li>
+      <li style="float:right"><a>Déconnexion</a></li>
+    </ng-template>
+  </ul>
+
+</div>
+
