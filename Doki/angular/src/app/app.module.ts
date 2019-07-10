@@ -15,6 +15,7 @@ import {BarreRechercheComponent} from './barre-recherche/barre-recherche.compone
 import {AuthenticationService} from './services/authentication.service';
 import {PraticienService} from './services/praticien-service';
 import { PraticienComponent } from './praticien/praticien.component';
+import { PraticienDetailComponent } from './praticien-detail/praticien-detail.component';
 
 
 @NgModule({
@@ -26,7 +27,8 @@ import { PraticienComponent } from './praticien/praticien.component';
     PageAcceuilComponent,
     LoginComponent,
     BarreRechercheComponent,
-    PraticienComponent
+    PraticienComponent,
+    PraticienDetailComponent
 
   ],
   imports: [
