@@ -1,7 +1,6 @@
 import {Injectable} from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {Observable} from 'rxjs';
-import {url} from 'inspector';
 import {Praticien} from '../model/praticien';
 
 @Injectable({providedIn: 'root'})
