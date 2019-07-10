@@ -8,9 +8,6 @@ import {Personne} from '../model/personne';
 })
 export class MenuComponent implements OnInit {
 
-  @Input('personne')
-  private p: Personne = new Personne();
-
   @Output()
   private showLogout = new EventEmitter<boolean>();
 
@@ -18,8 +15,6 @@ export class MenuComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    if (!this.p.username) {
-      this.log = true;
-    }
+
   }
 }
