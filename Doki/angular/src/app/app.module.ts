@@ -11,6 +11,8 @@ import {MenuComponent} from './menu/menu.component';
 import { InscriptionComponent } from './inscription/inscription.component';
 import { PageAcceuilComponent } from './page-acceuil/page-acceuil.component';
 import { LoginComponent } from './login/login.component';
+import { BarreRechercheComponent } from './barre-recherche/barre-recherche.component';
+
 
 @NgModule({
   declarations: [
@@ -20,6 +22,8 @@ import { LoginComponent } from './login/login.component';
     InscriptionComponent,
     PageAcceuilComponent,
     LoginComponent
+    BarreRechercheComponent
+
   ],
   imports: [
     BrowserModule, FormsModule, RouterModule.forRoot(routes), HttpClientModule

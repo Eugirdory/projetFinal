@@ -2,8 +2,11 @@
 
   <ul>
     <ng-container *ngIf="!log;else showLogout">
-      <li><a class="active">Acceuil</a></li>
+      <li><a [routerLink]="['/accueil']" class="active">Accueil</a></li>
       <li><a>Contact</a></li>
+      <li>
+
+      </li>
       <li style="float:right"><a [routerLink]="['/login']" routerLinkActive="active">Connexion</a></li>
       <li style="float:right"><a [routerLink]="['/inscription']"
                                                   routerLinkActive="active">Inscription</a></li>
@@ -11,7 +14,7 @@
     </ng-container>
 
     <ng-template #showLogout>
-      <li><a class="active">Acceuil</a></li>
+      <li><a [routerLink]="['/accueil']" class="active">Accueil</a></li>
       <li><a>Contact</a></li>
       <li><a>Profil</a></li>
       <li style="float:right"><a>Déconnexion</a></li>
