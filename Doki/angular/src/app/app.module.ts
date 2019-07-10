@@ -14,6 +14,7 @@ import {LoginComponent} from './login/login.component';
 import {BarreRechercheComponent} from './barre-recherche/barre-recherche.component';
 import {AuthenticationService} from './services/authentication.service';
 import {PraticienService} from './services/praticien-service';
+import { PraticienComponent } from './praticien/praticien.component';
 
 
 @NgModule({
@@ -24,7 +25,8 @@ import {PraticienService} from './services/praticien-service';
     InscriptionComponent,
     PageAcceuilComponent,
     LoginComponent,
-    BarreRechercheComponent
+    BarreRechercheComponent,
+    PraticienComponent
 
   ],
   imports: [
