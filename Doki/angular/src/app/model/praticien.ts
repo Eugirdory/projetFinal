@@ -2,20 +2,24 @@ import {RendezVous} from './rendez-vous';
 import {Motif} from './motif';
 import {Specialite} from './specialite';
 import {Disponibilite} from './disponibilite';
+import {Personne} from './personne';
+import {Civilite} from './civilite.enum';
 
-export class Praticien {
+export class Praticien extends Personne{
 
   private _specialites: Array<Specialite> = new Array<Specialite>();
   private _dispos: Array<Disponibilite> = new Array<Disponibilite>();
   private _rdvs: Array<RendezVous> = new Array<RendezVous>();
   private _motifs: Array<Motif> = new Array<Motif>();
-  constructor(specialites: Array<Specialite>, dispos: Array<Disponibilite>, rdvs: Array<RendezVous>, motifs: Array<Motif>) {
+
+
+  constructor(civilite?: Civilite, password?: string, username?: string, nom?: string, prenom?: string, mail?: string, telephone?: string, specialites?: Array<Specialite>, dispos?: Array<Disponibilite>, rdvs?: Array<RendezVous>, motifs?: Array<Motif>) {
+    super(civilite, password, username, nom, prenom, mail, telephone);
     this._specialites = specialites;
     this._dispos = dispos;
     this._rdvs = rdvs;
     this._motifs = motifs;
   }
-
 
   get specialites(): Array<Specialite> {
     return this._specialites;
