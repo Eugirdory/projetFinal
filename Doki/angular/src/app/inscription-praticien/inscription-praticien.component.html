@@ -1,7 +1,7 @@
 <div class="row custom-row">
   <div class= "col-sm-5 custom-container jumbotron">
 
-    <form class="form-horizontal">
+    <form class="form-horizontal" #signupForm = "ngForm">
       <fieldset>
         <legend>Inscription</legend>
 
@@ -9,31 +9,28 @@
         <div class="form-group">
           <label for="inputEmail">Email</label>
           <input type="text"
+                 [(ngModel)] = "praticien.mail"
                  id="inputEmail"
+                 name="email"
                  placeholder="Email">
         </div>
         <!--- Password Block --->
         <div class="form-group">
           <label for="inputPassword">Password</label>
           <input type="password"
-                 id="inputPassword"
-                 placeholder="Password">
-        </div>
-
-        <div class="form-group">
-          <label for="confirmPassword" >Confirmer le Password</label>
-          <input type="password"
-                 id="confirmPassword"
-                 placeholder="Password">
+                [(ngModel)] = "praticien.password"
+                name="password"
+                id="inputPassword"
+                placeholder="Password">
         </div>
 
         <!--- Select gender Block --->
         <div class="form-group">
           <label for="select">Civilite</label>
           <select id="select">
-            <option>Monsieur</option>
-            <option>Madame</option>
-            <option>Mademoiselle</option>
+            <option *ngFor = "let c of civilite"
+                    [value] = "c"> {{c}}
+            </option>
           </select>
         </div>
 
@@ -42,18 +39,24 @@
         <div class="form-group">
           <label for="inputNom">Nom</label>
           <input type="text"
+                 [(ngModel)] = "praticien.nom"
+                 name="nom"
                  id="inputNom"
                  placeholder="Nom">
         </div>
         <div class="form-group">
           <label for="inputPrenom">Prenom</label>
           <input type="text"
+                 [(ngModel)] = "praticien.prenom"
+                 name="prenom"
                  id="inputPrenom"
                  placeholder="Prenom">
         </div>
         <div class="form-group">
           <label for="inputTelephone">Telephone</label>
           <input type="text"
+                 [(ngModel)] = "praticien.telephone"
+                 name="telephone"
                  id="inputTelephone"
                  placeholder="Telephone">
         </div>
@@ -61,6 +64,8 @@
         <div class="form-group">
           <label for="inputNumero">Numero</label>
           <input type="text"
+                 [(ngModel)] = "praticien.adresse.numero"
+                 name="nom"
                  id="inputNumero"
                  placeholder="Numero">
         </div>
@@ -152,8 +157,9 @@
         </div>
         <!--- Buttons Block --->
         <div class="form-group">
-          <button type="reset" class="btn btn-default">Cancel</button>
-          <button type="submit" class="btn btn-primary">Submit</button>
+          <button type="reset" class="btn btn-default">Annuler</button>
+          <button type="submit" class="btn btn-success" [disabled]="!signupForm.form.valid">Passer à l'étape suivante</button>
+          <!--boutton submit desactive jusqua ce que le formulaire soit valide-->
         </div>
       </fieldset>
     </form>

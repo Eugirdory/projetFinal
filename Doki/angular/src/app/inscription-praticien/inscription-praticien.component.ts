@@ -3,6 +3,7 @@ import {Praticien} from '../model/praticien';
 import {Specialite} from '../model/specialite';
 import {Motif} from '../model/motif';
 import {Disponibilite} from '../model/disponibilite';
+import {Jour} from '../model/jour.enum';
 
 @Component({
   selector: 'app-inscription-praticien',
@@ -12,6 +13,7 @@ import {Disponibilite} from '../model/disponibilite';
 export class InscriptionPraticienComponent implements OnInit {
 
   private praticien: Praticien;
+  private civilite: string[];
   private specialites: Specialite [] = [];
   private motifs: Motif [] = [];
   private dispo: Disponibilite [] = [];
@@ -19,6 +21,10 @@ export class InscriptionPraticienComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+    this.civilite = ['Monsieur', 'Madame', 'Mademoiselle'];
+
+    this.praticien = new Praticien(this.civilite[0], '', '', '', '', '', '',
+      {}, [], [], []);
   }
 
 }
