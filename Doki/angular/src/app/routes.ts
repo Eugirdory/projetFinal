@@ -6,6 +6,10 @@ import {PageAcceuilComponent} from './page-acceuil/page-acceuil.component';
 
 export const routes: Routes = [
   {path: 'inscription', component: InscriptionComponent},
+
+  {path: 'accueil', component : PageAcceuilComponent},
+
   {path: 'patient', component: PatientComponent},
-  {path: 'acceuil', component : PageAcceuilComponent},
+
+
 ];
