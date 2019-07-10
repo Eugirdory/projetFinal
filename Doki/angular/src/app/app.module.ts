@@ -8,12 +8,14 @@ import {RouterModule} from '@angular/router';
 import {routes} from './routes';
 import {MenuComponent} from './menu/menu.component';
 import { InscriptionComponent } from './inscription/inscription.component';
+import { PageAcceuilComponent } from './page-acceuil/page-acceuil.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     MenuComponent,
-    InscriptionComponent
+    InscriptionComponent,
+    PageAcceuilComponent
   ],
   imports: [
     BrowserModule, FormsModule, RouterModule.forRoot(routes), HttpClientModule
