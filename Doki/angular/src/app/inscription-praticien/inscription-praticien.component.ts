@@ -31,6 +31,6 @@ export class InscriptionPraticienComponent implements OnInit {
   public onFormSubmit({ value, valid}: { value: Praticien, valid: boolean }) {
     this.praticien = value;
     console.log( this.praticien);
-    console.log("valid: " + valid);
+    console.log('valid: ' + valid);
   }
 }

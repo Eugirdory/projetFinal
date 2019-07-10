@@ -1,0 +1,207 @@
+<div class="row custom-row">
+  <div class="col-sm-5 custom-container jumbotron">
+
+    <form class="form-horizontal" novalidate
+          (ngSubmit)="onFormSubmit(signupForm)" #signupForm="ngForm">
+
+      <fieldset>
+        <legend>Inscription</legend>
+
+        <!--- Email Block --->
+        <div class="form-group">
+          <label for="inputEmail">Email</label>
+          <input type="text"
+                 ngModel
+                 id="inputEmail"
+                 name="mail"
+                 #mail="ngModel"
+                 placeholder="Email"
+                 pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" required>
+        </div>
+        <div *ngIf="mail.invalid && (mail.dirty || mail.touched)"
+             class="alert alert-danger">
+          <div *ngIf="mail.errors?.required">
+            Le champs Email doit être complété
+          </div>
+          <div *ngIf="mail.errors?.pattern && mail.touched">
+            L'Email rentré n'est pas correct
+          </div>
+        </div>
+        <!--- Password Block --->
+        <div class="form-group">
+          <label for="inputPassword">Mot de Passe</label>
+          <input type="password"
+                 ngModel
+                 name="password"
+                 id="inputPassword"
+                 #password="ngModel"
+                 placeholder="Password"
+                 minlength="6" required>
+        </div>
+        <div *ngIf="(password.invalid && password.touched)"
+             class="alert alert-danger">
+
+          <div *ngIf="password.invalid; else nomatch">
+            Le Password doit être composé d'au moins 6 caractères
+          </div>
+          <ng-template #nomatch>
+            Le Password est incorrect
+          </ng-template>
+        </div>
+        <!--- Select gender Block --->
+        <div class="form-group">
+          <label for="select">Civilite</label>
+          <select id="select">
+            <option *ngFor="let c of civilite"
+                    [value]="c"> {{c}}
+            </option>
+          </select>
+        </div>
+
+        <!---nom prenom date de naissance telephone adresse--->
+
+        <div class="form-group">
+          <label for="inputNom">Nom</label>
+          <input type="text"
+                 ngModel
+                 name="nom"
+                 id="inputNom"
+                 #nom="ngModel"
+                 placeholder="Nom" required>
+        </div>
+        <div *ngIf="nom.invalid && (nom.dirty || nom.touched)"
+             class="alert alert-danger">
+          <div *ngIf="nom.errors?.required">
+            Le champs Nom doit être complété
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="inputPrenom">Prenom</label>
+          <input type="text"
+                 ngModel
+                 name="prenom"
+                 id="inputPrenom"
+                 #prenom="ngModel"
+                 placeholder="Prenom" required>
+        </div>
+        <div *ngIf="prenom.invalid && (prenom.dirty || prenom.touched)"
+             class="alert alert-danger">
+          <div *ngIf="prenom.errors?.required">
+            Le champs Prenom doit être complété
+          </div>
+        </div>
+
+
+
+
+        <!-- Date naissance à relir -->
+        <div class="form-group">
+          <label for="inputDateNaissance">Date de naissance</label>
+          <input type="date"
+                 ngModel
+                 name="dateNaissance"
+                 id="inputDateNaissance"
+                 #nom="ngModel"
+                 placeholder="Date de naissance" required>
+        </div>
+        <div *ngIf="dateNaissance.invalid && (dateNaissance.dirty || dateNaissance.touched)"
+             class="alert alert-danger">
+          <div *ngIf="dateNaissance.errors?.required">
+            Le champs Date de naissance doit être renseigné doit être complété
+          </div>
+        </div>
+
+
+
+
+
+        <div class="form-group">
+          <label for="inputTelephone">Telephone</label>
+          <input type="text"
+                 ngModel
+                 name="telephone"
+                 id="inputTelephone"
+                 #telephone="ngModel"
+                 placeholder="Telephone" required>
+        </div>
+        <div *ngIf="telephone.invalid && (telephone.dirty || telephone.touched)"
+             class="alert alert-danger">
+          <div *ngIf="telephone.errors?.required">
+            Le champs Telephone doit être complété
+          </div>
+        </div>
+        Adresse&nbsp;:<br/>
+        <div class="form-group">
+          <label for="inputNumero">Numero</label>
+          <input type="text"
+                 ngModel
+                 name="numero"
+                 id="inputNumero"
+                 #numero="ngModel"
+                 placeholder="Numero" required>
+        </div>
+        <div *ngIf="numero.invalid && (numero.dirty || numero.touched)"
+             class="alert alert-danger">
+          <div *ngIf="numero.errors?.required">
+            Le champs numero doit être complété
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="inputRue">Rue</label>
+          <input type="text"
+                 ngModel
+                 name="rue"
+                 id="inputRue"
+                 #rue="ngModel"
+                 placeholder="Rue" required>
+        </div>
+        <div *ngIf="rue.invalid && (rue.dirty || rue.touched)"
+             class="alert alert-danger">
+          <div *ngIf="rue.errors?.required">
+            Le champs rue doit être complété
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="inputCp">CP</label>
+          <input type="text"
+                 ngModel
+                 name="cp"
+                 id="inputCp"
+                 #cp="ngModel"
+                 placeholder="CP" required>
+        </div>
+        <div *ngIf="cp.invalid && (cp.dirty || cp.touched)"
+             class="alert alert-danger">
+          <div *ngIf="cp.errors?.required">
+            Le champs cp doit être complété
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="inputVille">Ville</label>
+          <input type="text"
+                 ngModel
+                 name="ville"
+                 id="inputVille"
+                 #ville="ngModel"
+                 placeholder="Ville" required>
+        </div>
+        <div *ngIf="ville.invalid && (ville.dirty || ville.touched)"
+             class="alert alert-danger">
+          <div *ngIf="ville.errors?.required">
+            Le champs ville doit être complété
+          </div>
+        </div>
+        <!--- Buttons Block --->
+        <div class="form-group">
+          <button type="reset" class="btn btn-default">Annuler</button>
+          <button type="submit" class="btn btn-success" [disabled]="!signupForm.form.valid">Passer à l'étape suivante
+          </button>
+          <!--boutton submit desactive jusqua ce que le formulaire soit valide-->
+        </div>
+      </fieldset>
+    </form>
+    {{signupForm.value | json}}
+  </div>
+
+</div>
+
