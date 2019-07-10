@@ -6,10 +6,12 @@ import {FormsModule} from '@angular/forms';
 import { AppComponent } from './app.component';
 import {RouterModule} from '@angular/router';
 import {routes} from './routes';
+import { PatientComponent } from './patient/patient.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    PatientComponent
   ],
   imports: [
     BrowserModule, FormsModule, RouterModule.forRoot(routes), HttpClientModule
