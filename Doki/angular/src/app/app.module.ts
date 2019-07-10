@@ -6,10 +6,12 @@ import {FormsModule} from '@angular/forms';
 import { AppComponent } from './app.component';
 import {RouterModule} from '@angular/router';
 import {routes} from './routes';
+import {MenuComponent} from './menu/menu.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    MenuComponent
   ],
   imports: [
     BrowserModule, FormsModule, RouterModule.forRoot(routes), HttpClientModule
