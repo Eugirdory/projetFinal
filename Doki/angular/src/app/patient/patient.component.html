@@ -4,6 +4,18 @@
 
   <div>
 
+    <mat-radio-group aria-label="">
+      <mat-radio-button value="1">Option 1</mat-radio-button>
+      <mat-radio-button value="2">Option 2</mat-radio-button>
+    </mat-radio-group>
+
+    <input type="radio"
+           ng-model="patient.civilite.libe"
+           value="string"
+           [name="string"]
+           [ng-change="string"]
+           ng-value="string">
+
     Prénom : <input [(ngModel)]="patient.prenom"><br/>
     Nom : <input [(ngModel)]="patient.nom"><br/><br>
 
