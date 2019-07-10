@@ -33,7 +33,7 @@ import formation.sopra.bu.projetDoki.view.JsonViews;
 
 @RestController
 @RequestMapping("/rest/praticien")
-//@CrossOrigin(origins="*")
+@CrossOrigin(origins="*")
 public class PraticienRestController {
 
 		
