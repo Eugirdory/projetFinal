@@ -28,7 +28,7 @@ export class PraticienService {
   }
 
   public update(praticien: Praticien): Observable<any> {
-    return this.http.put(`$${url()}/${praticien.username}`, praticien, this.httpOptions);
+    return this.http.put(`${this.url}/${praticien.username}`, praticien, this.httpOptions);
   }
 
   public insert(praticien: Praticien): Observable<any> {
