@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {Personne} from '../model/personne';
 
 @Component({
@@ -11,11 +11,15 @@ export class MenuComponent implements OnInit {
   @Input('personne')
   private p: Personne = null;
 
+  @Output()
+  private showLogout = new EventEmitter<boolean>();
+
+  private log = false;
   constructor() { }
 
   ngOnInit() {
+    if (!this.p.username) {
+      this.log = true;
+    }
   }
-
-
-
 }

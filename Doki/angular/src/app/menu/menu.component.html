@@ -1,11 +1,22 @@
 <div class="container">
+
   <ul>
-    <li><a class="active" >Acceuil</a></li>
-    <li *ngIf="p!==null"><a >Profil</a></li>
-    <li><a >Contact</a></li>
-    <li *ngIf="p===null" style="float:right"><a [routerLink]="['/login']" routerLinkActive="active" >Connexion</a></li>
-    <li *ngIf="p===null" style="float:right"><a [routerLink]="['/inscription']" routerLinkActive="active">Inscription</a></li>
-    <li *ngIf="p!==null" style="float:right"><a >Déconnexion</a></li>
+    <ng-container *ngIf="!log;else showLogout">
+      <li><a class="active">Acceuil</a></li>
+      <li><a>Contact</a></li>
+      <li style="float:right"><a [routerLink]="['/login']" routerLinkActive="active">Connexion</a></li>
+      <li style="float:right"><a [routerLink]="['/inscription']"
+                                                  routerLinkActive="active">Inscription</a></li>
+
+    </ng-container>
+
+    <ng-template #showLogout>
+      <li><a class="active">Acceuil</a></li>
+      <li><a>Contact</a></li>
+      <li><a>Profil</a></li>
+      <li style="float:right"><a>Déconnexion</a></li>
+    </ng-template>
   </ul>
 
 </div>
+
