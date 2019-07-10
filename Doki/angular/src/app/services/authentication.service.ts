@@ -7,7 +7,7 @@ import {Router} from '@angular/router';
 })
 export class AuthenticationService {
 
-  private token: Personne= null;
+  private token: Personne = null;
 
   constructor(private router: Router) {
     console.log('construction Authentific');
@@ -22,7 +22,7 @@ export class AuthenticationService {
   }
 
   public login(personne: Personne) {
-    if (personne.username === 'toto' && personne.password === 'toto') {
+    if (personne.username === 'amy' && personne.password === 'toto') {
       this.token = personne;
       return true;
     } else {

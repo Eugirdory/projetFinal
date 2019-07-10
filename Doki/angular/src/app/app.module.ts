@@ -6,7 +6,7 @@ import {FormsModule} from '@angular/forms';
 import {AppComponent} from './app.component';
 import {RouterModule} from '@angular/router';
 import {routes} from './routes';
-import {PatientComponent} from './patient/patient.component';
+import {PatientComponent} from './inscription-patient/patient.component';
 import {MenuComponent} from './menu/menu.component';
 import {InscriptionComponent} from './inscription/inscription.component';
 import {PageAcceuilComponent} from './page-acceuil/page-acceuil.component';
