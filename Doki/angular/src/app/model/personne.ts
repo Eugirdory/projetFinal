@@ -2,28 +2,47 @@ import {Civilite} from './civilite.enum';
 
 export class Personne {
 
-  private _civilite: Civilite;
+  private _civilite: string;
+  private _password: string;
+  private _username: string;
   private _nom: string;
   private _prenom: string;
   private _mail: string;
   private _telephone: string;
 
 
-  constructor(civilite?: Civilite, nom?: string, prenom?: string, mail?: string, telephone?: string) {
+  constructor(civilite?: string, password?: string, username?: string, nom?: string, prenom?: string, mail?: string, telephone?: string) {
     this._civilite = civilite;
+    this._password = password;
+    this._username = username;
     this._nom = nom;
     this._prenom = prenom;
     this._mail = mail;
     this._telephone = telephone;
   }
 
-
-  get civilite(): Civilite {
+  get civilite(): string {
     return this._civilite;
   }
 
-  set civilite(value: Civilite) {
+  set civilite(value: string) {
     this._civilite = value;
+  }
+
+  get password(): string {
+    return this._password;
+  }
+
+  set password(value: string) {
+    this._password = value;
+  }
+
+  get username(): string {
+    return this._username;
+  }
+
+  set username(value: string) {
+    this._username = value;
   }
 
   get nom(): string {

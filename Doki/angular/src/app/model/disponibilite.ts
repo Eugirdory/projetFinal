@@ -2,6 +2,19 @@ import {Adresse} from './adresse';
 import {Jour} from './jour.enum';
 
 export class Disponibilite {
+  private _jour: Jour;
+  private _heureD: Date;
+  private _heureF: Date;
+  private _cabinet: Adresse;
+
+
+  constructor(jour: Jour, heureD: Date, heureF: Date, cabinet: Adresse) {
+    this._jour = jour;
+    this._heureD = heureD;
+    this._heureF = heureF;
+    this._cabinet = cabinet;
+
+  }
   get jour(): Jour {
     return this._jour;
   }
@@ -34,18 +47,6 @@ export class Disponibilite {
     this._cabinet = value;
   }
 
-  private _jour: Jour;
-  private _heureD: Date;
-  private _heureF: Date;
-  private _cabinet: Adresse;
 
-
-  constructor(jour: Jour, heureD: Date, heureF: Date, cabinet: Adresse) {
-    this._jour = jour;
-    this._heureD = heureD;
-    this._heureF = heureF;
-    this._cabinet = cabinet;
-
-  }
 
 }
