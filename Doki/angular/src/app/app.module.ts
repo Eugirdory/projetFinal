@@ -10,14 +10,16 @@ import { PatientComponent } from './patient/patient.component';
 import {MenuComponent} from './menu/menu.component';
 import { InscriptionComponent } from './inscription/inscription.component';
 import { PageAcceuilComponent } from './page-acceuil/page-acceuil.component';
+import { BarreRechercheComponent } from './barre-recherche/barre-recherche.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    PatientComponent
+    PatientComponent,
     MenuComponent,
     InscriptionComponent,
-    PageAcceuilComponent
+    PageAcceuilComponent,
+    BarreRechercheComponent
   ],
   imports: [
     BrowserModule, FormsModule, RouterModule.forRoot(routes), HttpClientModule
