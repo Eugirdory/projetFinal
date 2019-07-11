@@ -67,7 +67,7 @@ public class PraticienRestController {
 	        URI uri=ucb.path("/rest/praticien/{id}").buildAndExpand(praticien.getUsername()).toUri();
 	        headers.setLocation(uri);
 	        
-	        return new ResponseEntity<>(headers, HttpStatus.CREATED);
+	        return new ResponseEntity<Void>(headers, HttpStatus.CREATED);
 	    }
 	    
 	    @GetMapping(value= {"/{id}"})
