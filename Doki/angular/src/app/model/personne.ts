@@ -11,7 +11,7 @@ export class Personne {
   private _telephone: string;
 
 
-  constructor(civilite?: string, password?: string, username?: string, nom?: string, prenom?: string, mail?: string, telephone?: string) {
+  constructor(mail?: string, username?: string, password?: string, civilite?: string,   nom?: string, prenom?: string,  telephone?: string) {
     this._civilite = civilite;
     this._password = password;
     this._username = username;

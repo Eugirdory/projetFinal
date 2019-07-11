@@ -1,12 +1,9 @@
 <div class="row custom-row">
   <div class= "col-sm-5 custom-container jumbotron">
-
     <form class="form-horizontal" novalidate
           (ngSubmit)="onFormSubmit(signupForm)" #signupForm = "ngForm">
-
       <fieldset>
         <legend>Inscription</legend>
-
         <!--- Email Block --->
         <div class="form-group">
           <label for="inputEmail">Email</label>
@@ -21,26 +18,41 @@
         <div *ngIf="mail.invalid && (mail.dirty || mail.touched)"
              class="alert alert-danger">
           <div *ngIf = "mail.errors?.required">
-           Le champs Email doit être complété
+            Le champs Email doit être complété
           </div>
           <div *ngIf = "mail.errors?.pattern && mail.touched">
             L'Email rentré n'est pas correct
+          </div>
+        </div>
+        <!-- username-->
+        <div class="form-group">
+          <label for="inputUsername">Identifiant</label>
+          <input type="text"
+                 ngModel
+                 name="username"
+                 id="inputUsername"
+                 #username = "ngModel"
+                 placeholder="Identifiant" required>
+        </div>
+        <div *ngIf="username.invalid && (username.dirty || username.touched)"
+             class="alert alert-danger">
+          <div *ngIf = "username.errors?.required">
+            Le champs identifiant doit être complété
           </div>
         </div>
         <!--- Password Block --->
         <div class="form-group">
           <label for="inputPassword">Mot de Passe</label>
           <input type="password"
-                ngModel
-                name="password"
-                id="inputPassword"
+                 ngModel
+                 name="password"
+                 id="inputPassword"
                  #password = "ngModel"
-                placeholder="Password"
-                minlength="6" required>
+                 placeholder="Password"
+                 minlength="6" required>
         </div>
         <div *ngIf="(password.invalid && password.touched)"
              class="alert alert-danger">
-
           <div *ngIf = "password.invalid; else nomatch">
             Le Password doit être composé d'au moins 6 caractères
           </div>
@@ -57,9 +69,7 @@
             </option>
           </select>
         </div>
-
         <!---nom prenom telephone adresse--->
-
         <div class="form-group">
           <label for="inputNom">Nom</label>
           <input type="text"
@@ -110,7 +120,7 @@
           <label for="inputNumero">Numero</label>
           <input type="text"
                  ngModel
-                 name="numero"
+                 name="cabinet.numero"
                  id="inputNumero"
                  #numero = "ngModel"
                  placeholder="Numero" required>
@@ -125,7 +135,7 @@
           <label for="inputRue">Rue</label>
           <input type="text"
                  ngModel
-                 name="rue"
+                 name="cabinet.rue"
                  id="inputRue"
                  #rue = "ngModel"
                  placeholder="Rue"required>
@@ -140,7 +150,7 @@
           <label for="inputCp">CP</label>
           <input type="text"
                  ngModel
-                 name="cp"
+                 name="cabinet.cp"
                  id="inputCp"
                  #cp = "ngModel"
                  placeholder="CP" required>
@@ -155,7 +165,7 @@
           <label for="inputVille">Ville</label>
           <input type="text"
                  ngModel
-                 name="ville"
+                 name="cabinet.ville"
                  id="inputVille"
                  #ville = "ngModel"
                  placeholder="Ville" required>
@@ -170,7 +180,7 @@
           <label for="inputCode">Code</label>
           <input type="text"
                  ngModel
-                 name="code"
+                 name="cabinet.code"
                  id="inputCode"
                  #code = "ngModel"
                  placeholder="Code" required>
@@ -241,14 +251,14 @@
           </div>
         </div>
         <div class="form-group">
-        <label for="inputMotif2">Motif 2</label>
-        <input type="text"
-               ngModel
-               name="motifs"
-               id="inputMotif2"
-               #motif2 = "ngModel"
-               placeholder="Motif2" required>
-      </div>
+          <label for="inputMotif2">Motif 2</label>
+          <input type="text"
+                 ngModel
+                 name="motifs"
+                 id="inputMotif2"
+                 #motif2 = "ngModel"
+                 placeholder="Motif2" required>
+        </div>
         <div class="form-group">
           <label for="inputMotif3">Motif3</label>
           <input type="text"
@@ -266,8 +276,6 @@
         </div>
       </fieldset>
     </form>
-    {{signupForm.value | json}}
+    <!--{{signupForm.value | json}}-->
   </div>
-
 </div>
-

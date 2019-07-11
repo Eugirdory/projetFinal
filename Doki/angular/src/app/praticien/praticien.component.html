@@ -1,5 +1,13 @@
 <p>praticien works!</p>
 <div>
+  <input type="text" class="form-control" [(ngModel)]="mot" placeholder="Recherche...">
+  <span class="input-group-btn">
+    <button (click)="list()" class="btn btn-default glyphicon glyphicon-search"
+            type="submit">All</button>
+    <button (click)="searchNom()" class="btn btn-default glyphicon glyphicon-search"
+            type="submit">Rechercher par nom</button>
+  </span>
+  {{mot}}
   <table class="table">
     <tr>
       <th>Username</th>

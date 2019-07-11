@@ -24,16 +24,16 @@ import org.springframework.web.util.UriComponentsBuilder;
 
 import com.fasterxml.jackson.annotation.JsonView;
 
-import formation.sopra.bu.projetDoki.metier.Patient;
 import formation.sopra.bu.projetDoki.metier.Praticien;
-import formation.sopra.bu.projetDoki.repository.PatientRepository;
+
 import formation.sopra.bu.projetDoki.repository.PraticienRepository;
 import formation.sopra.bu.projetDoki.view.JsonViews;
 
 
 @RestController
 @RequestMapping("/rest/praticien")
-//@CrossOrigin(origins="*")
+@CrossOrigin(origins="*")
+
 public class PraticienRestController {
 
 		
@@ -53,12 +53,33 @@ public class PraticienRestController {
 	        return list();
 	    }
 	    
+	    //recherche par nom
+	    @JsonView(JsonViews.Common.class)
+	    @GetMapping(value = {"/rnom/{rech}"})
+	    public ResponseEntity<List<Praticien>> listNom(@PathVariable(name = "rech") String rech){
+	    	return new ResponseEntity<List<Praticien>>(praticienRepository.findByNomContaining(rech.toLowerCase()),HttpStatus.OK);
+	    }
+	    
+	    //recherche par prenom
+	    @JsonView(JsonViews.Common.class)
+	    @GetMapping(value = {"/rprenom/{rech}"})
+	    public ResponseEntity<List<Praticien>> listPrenom(@PathVariable(name = "rech") String rech){
+	    	return new ResponseEntity<List<Praticien>>(praticienRepository.findByPrenomContaining(rech.toLowerCase()),HttpStatus.OK);
+	    }
+	    
+	    //recherche par specialite
+//	    @JsonView(JsonViews.Common.class)
+//	    @GetMapping(value = {"/rspecilite/{rech}"})
+//	    public ResponseEntity<List<Praticien>> listSpecialite(@PathVariable(name = "rech") String rech){
+//	    	return new ResponseEntity<List<Praticien>>(praticienRepository.findAllBySpecialite(rech.toLowerCase()),HttpStatus.OK);
+//	    }
+	    
 	    public ResponseEntity<List<Praticien>> list(){
 	        return new ResponseEntity<List<Praticien>>(praticienRepository.findAll(),HttpStatus.OK);
 	    }
-	    
+	
 	    @PostMapping(value= {"","/"})
-	    public ResponseEntity<Void> create(@Valid @RequestBody Praticien praticien,BindingResult br, UriComponentsBuilder ucb){
+	    public ResponseEntity<Void> create (@Valid @RequestBody Praticien praticien,BindingResult br, UriComponentsBuilder ucb){
 	        if(br.hasErrors()) {
 	            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
 	        }
@@ -67,7 +88,7 @@ public class PraticienRestController {
 	        URI uri=ucb.path("/rest/praticien/{id}").buildAndExpand(praticien.getUsername()).toUri();
 	        headers.setLocation(uri);
 	        
-	        return new ResponseEntity<>(headers, HttpStatus.CREATED);
+	        return new ResponseEntity<Void>(headers, HttpStatus.CREATED);
 	    }
 	    
 	    @GetMapping(value= {"/{id}"})

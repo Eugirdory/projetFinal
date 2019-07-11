@@ -25,6 +25,7 @@ export class LoginComponent implements OnInit {
   public login() {
     if (this.authService.login(this.personne)) {
       console.log('ok');
+      this.router.navigate(['/accueil']);
     } else {
       this.message = 'erreur authentification';
     }
