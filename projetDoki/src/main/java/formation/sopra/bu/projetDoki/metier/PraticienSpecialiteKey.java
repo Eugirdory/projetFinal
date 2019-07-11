@@ -4,6 +4,10 @@ import java.io.*;
 
 import javax.persistence.*;
 
+import com.fasterxml.jackson.annotation.JsonView;
+
+import formation.sopra.bu.projetDoki.view.JsonViews;
+
 @Embeddable
 public class PraticienSpecialiteKey implements Serializable{
 	
@@ -13,6 +17,7 @@ public class PraticienSpecialiteKey implements Serializable{
 	private Praticien praticien;
 	@ManyToOne
 	@JoinColumn(name = "specialite_id")
+	@JsonView(JsonViews.PraticienAvecSpe.class)
 	private Specialite specialite;
 	
 //Constructeur

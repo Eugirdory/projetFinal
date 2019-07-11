@@ -1,10 +1,10 @@
 import { Injectable } from '@angular/core';
 
+
 import {Patient} from '../model/patient';
 
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {Observable} from 'rxjs';
-
 
 
 @Injectable({
