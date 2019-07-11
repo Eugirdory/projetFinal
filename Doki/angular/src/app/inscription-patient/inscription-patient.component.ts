@@ -16,16 +16,16 @@ export class InscriptionPatientComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.civilite = ['Monsieur', 'Madame', 'Mademoiselle'];
+  /*  this.civilite = ['Monsieur', 'Madame', 'Mademoiselle'];
 
     this.patient = new Patient(this.civilite[0], this.patient.password, this.patient.username, this.patient.nom,
-      this.patient.prenom, this.patient.dateNaissance, this.patient.mail, this.patient.telephone, this.patient.domicile, );
+      this.patient.prenom, this.patient.dateNaissance, this.patient.mail, this.patient.telephone, this.patient.domicile, );*/
   }
-
+/*
   public onFormSubmit({value, valid}: { value: Patient, valid: boolean }) {
     this.patient = value;
     console.log(this.patient);
     console.log('valid: ' + valid);
-  }
+  } */
 
 }

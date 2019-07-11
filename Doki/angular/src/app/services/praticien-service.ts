@@ -6,15 +6,13 @@ import {Praticien} from '../model/praticien';
 @Injectable({providedIn: 'root'})
 export class PraticienService {
   private url = 'http://localhost:8080/boot/rest/praticien';
-
   private httpHeaders: HttpHeaders;
-
   private httpOptions: any;
 
   constructor(private http: HttpClient) {
     this.httpHeaders = new HttpHeaders({
       'Content-Type': 'application/json',
-      'Authorization': 'Basic ' + btoa('moi:toto')
+      'Authorization': 'No'  // + btoa('moi:toto')
     });
     this.httpOptions = {headers: this.httpHeaders};
   }
@@ -33,14 +31,17 @@ export class PraticienService {
 
   public insert(praticien: Praticien): Observable<any> {
     const p = {
-      'civilite': praticien.civilite,
-      'prenom': praticien.prenom,
-      'nom': praticien.nom,
       'mail': praticien.mail,
-      'telephone': praticien.telephone
-
+      'username': praticien.username,
+      'password': praticien.password,
+      'civilite': praticien.civilite,
+      'nom': praticien.nom,
+      'prenom': praticien.prenom,
+      'telephone': praticien.telephone,
+      'adresse': praticien.cabinet,
+      'specialite': praticien.specialites,
+      'motif': praticien.motifs,
     };
     return this.http.post(`${this.url}`, p, this.httpOptions);
   }
-
 }
