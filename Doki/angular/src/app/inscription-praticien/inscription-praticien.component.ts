@@ -26,9 +26,9 @@ export class InscriptionPraticienComponent implements OnInit {
   constructor(private praticienService: PraticienService, private router: Router) { }
   ngOnInit() {
     this.civilite = ['Monsieur', 'Madame', 'Mademoiselle'];
-    this.cabinet = new Adresse(null, '', '' , '', '');
+    //this.cabinet = new Adresse(null, '', '' , '', '');
     this.praticien = new Praticien(
-      '', '', '', this.civilite[0], '', '', '', this.cabinet, [], []);
+      '', '', '', this.civilite[0], '', '', '', this.cabinet = new Adresse(null, '', '' , '', ''), [], []);
   }
   public onFormSubmit({ value }: { value: Praticien, valid: boolean }) {
     this.praticien = value;
