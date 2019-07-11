@@ -46,11 +46,11 @@ public class Patient extends Personne {
 //Constructeurs
 	public Patient() {
 	}
-	
-public Patient(String username, String nom, String prenom, String mail, String telephone, Civilite civilite,
-		String password, boolean enable, List<UserRole> roles, int version, Date dateNaissance, Adresse domicile,
-		List<RendezVous> rdvs) {
-	super(username, nom, prenom, mail, telephone, civilite, password, enable, roles, version);
+
+public Patient(String mail, String username, String password, String civilite, String nom, String prenom,
+		String telephone, Adresse domicile, Date dateNaissance, List<RendezVous> rdvs, boolean enable, List<UserRole> roles, int version
+		) {
+	super(mail, username, password, civilite, nom, prenom, telephone, enable, roles, version);
 	this.dateNaissance = dateNaissance;
 	this.domicile = domicile;
 	this.rdvs = rdvs;

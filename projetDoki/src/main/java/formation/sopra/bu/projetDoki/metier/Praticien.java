@@ -35,18 +35,18 @@ public class Praticien extends Personne {
 	public Praticien() {
 	}
 
-public Praticien(String username, String nom, String prenom, String telephone, Civilite civilite, String password,
-		boolean enable, List<UserRole> roles, int version, List<PraticienSpecialite> specialites,
-		List<PraticienMotif> motifs, List<Disponibilite> dispos, List<RendezVous> rdvs) {
-	super(username, nom, prenom, telephone, civilite, password, enable, roles, version);
-	this.specialites = specialites;
-	this.motifs = motifs;
-	this.dispos = dispos;
-	this.rdvs = rdvs;
-}
+	public Praticien(String mail, String username, String password, String civilite, String nom, String prenom,
+			String telephone, List<PraticienSpecialite> specialites, List<PraticienMotif> motifs,
+			List<Disponibilite> dispos, List<RendezVous> rdvs, boolean enable, List<UserRole> roles, int version) {
+		super(mail, username, password, civilite, nom, prenom, telephone, enable, roles, version);
+		this.specialites = specialites;
+		this.motifs = motifs;
+		this.dispos = dispos;
+		this.rdvs = rdvs;
+	}
 
 //Getters & Setters
-	
+
 	public List<PraticienMotif> getMotifs() {
 		return motifs;
 	}
