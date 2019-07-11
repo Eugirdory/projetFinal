@@ -1,14 +1,11 @@
 import { Injectable } from '@angular/core';
-<<<<<<< HEAD
+
+import {Patient} from '../model/patient';
+
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {Observable} from 'rxjs';
-import {Praticien} from '../model/praticien';
-import {Patient} from '../model/patient';
-=======
-import {HttpClient, HttpHeaders} from "@angular/common/http";
-import {Observable} from "rxjs";
-import {Praticien} from "../model/praticien";
->>>>>>> f11c76037101eacff3bb5252ec4f08b9fcc299c2
+
+
 
 @Injectable({
   providedIn: 'root'
@@ -30,7 +27,6 @@ export class PatientService {
   public list(): Observable<any> {
     return this.http.get(this.url, {headers: this.httpHeaders});
   }
-<<<<<<< HEAD
 
   public delete(id: string): Observable<any> {
     return this.http.delete(`${this.url}/${id}`, this.httpOptions);
