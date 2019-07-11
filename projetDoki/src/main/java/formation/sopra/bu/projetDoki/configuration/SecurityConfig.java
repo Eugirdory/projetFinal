@@ -25,7 +25,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
 		.antMatchers(HttpMethod.OPTIONS).anonymous();
 //		http.authorizeRequests().antMatchers("/rest/praticien").hasRole("PRATICIEN").and().httpBasic().and().csrf().disable();
 //		http.authorizeRequests().antMatchers("/rest/patient").hasRole("PATIENT").and().httpBasic().and().csrf().disable();
-		http.authorizeRequests().antMatchers("/rest/**").permitAll();
+		http.authorizeRequests().antMatchers("/").permitAll().and().csrf().disable();
 //		http.authorizeRequests().antMatchers("/rest/**").hasRole("ADMIN").and().httpBasic().and().csrf().disable();
 		
 	}
