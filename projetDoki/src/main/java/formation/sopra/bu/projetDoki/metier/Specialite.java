@@ -27,7 +27,6 @@ public class Specialite {
 	private int version;
 
 	@OneToMany(mappedBy = "key.specialite")
-	@JsonView(JsonViews.Common.class)
 	private Set<PraticienSpecialite> praticiens;
 
 //Constructeur
