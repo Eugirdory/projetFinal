@@ -12,11 +12,11 @@ import formation.sopra.bu.projetDoki.repository.PersonneRepository;
 @Service
 public class ApplicationService implements CommandLineRunner {
 
-	@Autowired
-	private PasswordEncoder passwordEncoder;
-	@Autowired
-	private PersonneRepository personneRepository;
-
+	
+	  @Autowired private PasswordEncoder passwordEncoder;
+	  
+	  @Autowired private PersonneRepository personneRepository;
+	 
 	@Override
 	public void run(String... args) throws Exception {
 //		for(Personne personne : personneRepository.findAll()) {
