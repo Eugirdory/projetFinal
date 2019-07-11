@@ -1,4 +1,5 @@
 <p>praticien works!</p>
+<app-barre-recherche></app-barre-recherche>
 <div>
   <input type="text" class="form-control" [(ngModel)]="mot" placeholder="Recherche...">
   <span class="input-group-btn">
@@ -13,6 +14,7 @@
       <th>Username</th>
       <th>Nom</th>
       <th>Prenom</th>
+
     </tr>
 
     <tr lignePraticien [praticien]="p" *ngFor="let p of praticiens">
