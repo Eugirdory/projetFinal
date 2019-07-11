@@ -40,7 +40,7 @@ public class PraticienRestController {
 		@Autowired
 		private PraticienRepository praticienRepository; 
 		
-		@JsonView(JsonViews.Common.class)
+		@JsonView(JsonViews.PraticienAvecSpe.class)
 	    @GetMapping(value= {"","/"})
 	    public ResponseEntity<List<Praticien>> findAll(){
 	        return list();
@@ -92,7 +92,7 @@ public class PraticienRestController {
 	    }
 	    
 	    @GetMapping(value= {"/{id}"})
-	    @JsonView(JsonViews.Common.class)
+	    @JsonView(JsonViews.PraticienAvecSpe.class)
 	    public ResponseEntity<Praticien> findById(@PathVariable(name="id")String id){
 	        return findPraticienById(id);
 	    }

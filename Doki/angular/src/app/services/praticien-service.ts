@@ -10,7 +10,7 @@ export class PraticienService {
   constructor(private http: HttpClient) {
     this.httpHeaders = new HttpHeaders({
       'Content-Type': 'application/json',
-      'Authorization': 'No'  // + btoa('moi:toto')
+      'Authorization': 'No'   + btoa('moi:toto')
     });
     this.httpOptions = {headers: this.httpHeaders};
   }
