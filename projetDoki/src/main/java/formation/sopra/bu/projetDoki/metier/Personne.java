@@ -47,9 +47,8 @@ public abstract class Personne {
 	@JsonView(JsonViews.Common.class)
 	private String telephone;
 	@Column(name = "civilite")
-	@Enumerated(EnumType.STRING)
 	@JsonView(JsonViews.Common.class)
-	private Civilite civilite;
+	private String civilite;
 	
 	@Column(name = "password")
 	private String password;
@@ -63,26 +62,11 @@ public abstract class Personne {
 	public Personne() {
 	}
 	
-public Personne(String username, String nom, String prenom, String telephone, Civilite civilite, String password,
-		boolean enable, List<UserRole> roles, int version) {
+public Personne(String mail, String username, String password, String civilite, String nom, String prenom, String telephone, boolean enable, List<UserRole> roles, int version) {
 	super();
 	this.username = username;
 	this.nom = nom;
 	this.prenom = prenom;
-	this.telephone = telephone;
-	this.civilite = civilite;
-	this.password = password;
-	this.enable = enable;
-	this.roles = roles;
-	this.version = version;
-}
-
-public Personne(String username, String nom, String prenom, String mail, String telephone, Civilite civilite,
-		String password, boolean enable, List<UserRole> roles, int version) {
-	this.username = username;
-	this.nom = nom;
-	this.prenom = prenom;
-	this.mail = mail;
 	this.telephone = telephone;
 	this.civilite = civilite;
 	this.password = password;
@@ -125,11 +109,11 @@ public Personne(String username, String nom, String prenom, String mail, String 
 		this.telephone = telephone;
 	}
 
-	public Civilite getCivilite() {
+	public String getCivilite() {
 		return civilite;
 	}
 
-	public void setCivilite(Civilite civilite) {
+	public void setCivilite(String civilite) {
 		this.civilite = civilite;
 	}
 	
