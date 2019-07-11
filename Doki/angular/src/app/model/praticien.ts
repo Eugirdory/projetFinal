@@ -13,8 +13,10 @@ export class Praticien extends Personne {
   private _rdvs: Array<RendezVous> = new Array<RendezVous>();
   private _motifs: Array<Motif> = new Array<Motif>();
 
-  constructor(civilite?: string, password?: string, username?: string, nom?: string, prenom?: string, mail?: string, telephone?: string, cabinet?: Adresse, specialites?: Array<Specialite>, dispos?: Array<Disponibilite>, motifs?: Array<Motif>, rdvs?: Array<RendezVous>) {
-    super(civilite, password, username, nom, prenom, mail, telephone);
+  constructor(mail?: string, username?: string, password?: string, civilite?: string, nom?: string, prenom?: string, telephone?: string,
+              cabinet?: Adresse, specialites?: Array<Specialite>, motifs?: Array<Motif>, dispos?: Array<Disponibilite>,
+              rdvs?: Array<RendezVous>) {
+    super(mail, username, password, civilite, nom, prenom, telephone);
     this._cabinet = cabinet;
     this._specialites = specialites;
     this._dispos = dispos;

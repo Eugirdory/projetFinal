@@ -1,5 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {Patient} from '../model/patient';
+import {Adresse} from '../model/adresse';
 
 @Component({
   selector: 'app-inscription-patient',
@@ -8,18 +9,18 @@ import {Patient} from '../model/patient';
 })
 export class InscriptionPatientComponent implements OnInit {
 
-  @Input()
+  @Input('patient')
   private patient: Patient;
   private civilite: string[];
+  private domicile: Adresse;
 
   constructor() {
   }
 
   ngOnInit() {
-  /*  this.civilite = ['Monsieur', 'Madame', 'Mademoiselle'];
-
-    this.patient = new Patient(this.civilite[0], this.patient.password, this.patient.username, this.patient.nom,
-      this.patient.prenom, this.patient.dateNaissance, this.patient.mail, this.patient.telephone, this.patient.domicile, );*/
+  this.civilite = ['Monsieur', 'Madame', 'Mademoiselle'];
+  this.domicile = new Adresse(null, '', '' , '', '');
+ // this.patient = new Patient('', '', '', '', '', '', '', this.domicile, '');
   }
 /*
   public onFormSubmit({value, valid}: { value: Patient, valid: boolean }) {
