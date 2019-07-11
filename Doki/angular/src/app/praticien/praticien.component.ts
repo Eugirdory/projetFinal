@@ -10,7 +10,7 @@ import {PraticienService} from '../services/praticien-service';
 export class PraticienComponent implements OnInit {
 
   private praticiens: Praticien[] = [];
-
+  private mot = '';
   constructor(private praticienService: PraticienService) {
   }
 
@@ -23,5 +23,13 @@ export class PraticienComponent implements OnInit {
       console.log('list');
       this.praticiens = res;
     });
+  }
+
+  public searchNom() {
+    console.log('je cherche');
+    this.praticienService.rechNom(this.mot).subscribe(res => {
+      this.praticiens = res;
+    });
+
   }
 }
