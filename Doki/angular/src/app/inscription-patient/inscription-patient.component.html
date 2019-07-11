@@ -7,9 +7,27 @@
       <fieldset>
         <legend>Inscription</legend>
 
+
+        <!-- username-->
+        <div class="form-group">
+          <label for="inputUsername">Identifiant : </label>
+          <input type="text"
+                 ngModel
+                 name="username"
+                 id="inputUsername"
+                 #username = "ngModel"
+                 placeholder="Identifiant" required>
+        </div>
+        <div *ngIf="username.invalid && (username.dirty || username.touched)"
+             class="alert alert-danger">
+          <div *ngIf = "username.errors?.required">
+            Le champs identifiant doit être complété
+          </div>
+        </div>
+
         <!--- Email Block --->
         <div class="form-group">
-          <label for="inputEmail">Email</label>
+          <label for="inputEmail">Email: </label>
           <input type="text"
                  ngModel
                  id="inputEmail"
