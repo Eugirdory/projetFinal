@@ -51,9 +51,9 @@
         <!--- Select gender Block --->
         <div class="form-group">
           <label for="select">Civilite</label>
-          <select id="select">
-            <option *ngFor="let c of civilite"
-                    [value]="c"> {{c}}
+          <select id="select" ngModel = "praticien.civilite" name = "civilite">
+            <option *ngFor = "let c of civilite"
+                    [value] = "c"> {{c}}
             </option>
           </select>
         </div>
@@ -90,9 +90,80 @@
             Le champs Prenom doit être complété
           </div>
         </div>
-
-
-
+        <div class="form-group">
+          <label for="inputPassword">Mot de Passe</label>
+          <input type="password"
+                 ngModel
+                 name="password"
+                 id="inputPassword"
+                 #password = "ngModel"
+                 placeholder="Password"
+                 minlength="6" required>
+        </div>
+        <div *ngIf="(password.invalid && password.touched)"
+             class="alert alert-danger">
+          <div *ngIf = "password.invalid; else nomatch">
+            Le mot de passe doit être composé d'au moins 6 caractères
+          </div>
+          <ng-template #nomatch >
+            Le mot de passe est incorrect
+          </ng-template>
+        </div>
+        <!--- Select gender Block --->
+        <div class="form-group">
+          <label for="select">Civilite</label>
+          <select id="select" ngModel = "praticien.civilite" name = "civilite">
+            <option *ngFor = "let c of civilite"
+                    [value] = "c"> {{c}}
+            </option>
+          </select>
+        </div>
+        <!---nom prenom telephone adresse--->
+        <div class="form-group">
+          <label for="inputNom">Nom</label>
+          <input type="text"
+                 ngModel
+                 name="nom"
+                 id="inputNom"
+                 #nom = "ngModel"
+                 placeholder="Nom" required>
+        </div>
+        <div *ngIf="nom.invalid && (nom.dirty || nom.touched)"
+             class="alert alert-danger">
+          <div *ngIf = "nom.errors?.required">
+            Le champs nom doit être complété
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="inputPrenom">Prenom</label>
+          <input type="text"
+                 ngModel
+                 name="prenom"
+                 id="inputPrenom"
+                 #prenom = "ngModel"
+                 placeholder="Prenom" required>
+        </div>
+        <div *ngIf="prenom.invalid && (prenom.dirty || prenom.touched)"
+             class="alert alert-danger">
+          <div *ngIf = "prenom.errors?.required">
+            Le champs prenom doit être complété
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="inputTelephone">Telephone</label>
+          <input type="text"
+                 ngModel
+                 name="telephone"
+                 id="inputTelephone"
+                 #telephone = "ngModel"
+                 placeholder="Telephone" required>
+        </div>
+        <div *ngIf="telephone.invalid && (telephone.dirty || telephone.touched)"
+             class="alert alert-danger">
+          <div *ngIf = "telephone.errors?.required">
+            Le champs téléphone doit être complété
+          </div>
+        </div>
 
         <!-- Date naissance à relir -->
         <div class="form-group">
@@ -101,35 +172,16 @@
                  ngModel
                  name="dateNaissance"
                  id="inputDateNaissance"
-                 #nom="ngModel"
+                 #dateNaissance="ngModel"
                  placeholder="Date de naissance" required>
         </div>
         <div *ngIf="dateNaissance.invalid && (dateNaissance.dirty || dateNaissance.touched)"
              class="alert alert-danger">
           <div *ngIf="dateNaissance.errors?.required">
-            Le champs Date de naissance doit être renseigné doit être complété
+            Le champs date de naissance doit être renseigné doit être complété
           </div>
         </div>
 
-
-
-
-
-        <div class="form-group">
-          <label for="inputTelephone">Telephone</label>
-          <input type="text"
-                 ngModel
-                 name="telephone"
-                 id="inputTelephone"
-                 #telephone="ngModel"
-                 placeholder="Telephone" required>
-        </div>
-        <div *ngIf="telephone.invalid && (telephone.dirty || telephone.touched)"
-             class="alert alert-danger">
-          <div *ngIf="telephone.errors?.required">
-            Le champs Telephone doit être complété
-          </div>
-        </div>
         Adresse&nbsp;:<br/>
         <div class="form-group">
           <label for="inputNumero">Numero</label>

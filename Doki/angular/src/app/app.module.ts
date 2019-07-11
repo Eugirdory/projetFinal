@@ -33,6 +33,7 @@ import {InscriptionPatientComponent} from './inscription-patient/inscription-pat
     InscriptionPraticienComponent,
     InscriptionPatientComponent,
 
+
   ],
   imports: [
     BrowserModule, FormsModule, RouterModule.forRoot(routes), HttpClientModule
