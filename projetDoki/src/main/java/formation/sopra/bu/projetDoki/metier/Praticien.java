@@ -30,7 +30,7 @@ public class Praticien extends Personne {
 	@Column(name = "rdvs_avec-patient")
 	@JsonView(JsonViews.PraticienAvecRdv.class)
 	private List<RendezVous> rdvs;
-	
+	@JsonView(JsonViews.Common.class)
 	private Adresse cabinet;
 
 //Constructeurs
