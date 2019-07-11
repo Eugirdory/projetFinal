@@ -2,6 +2,10 @@ package formation.sopra.bu.projetDoki.metier;
 
 import javax.persistence.*;
 
+import com.fasterxml.jackson.annotation.JsonView;
+
+import formation.sopra.bu.projetDoki.view.JsonViews;
+
 
 @Entity
 @Table(name = "praticien_specialite")
@@ -9,6 +13,7 @@ public class PraticienSpecialite {
 	
 //Attributs
 	@EmbeddedId
+	@JsonView(JsonViews.PraticienAvecSpe.class)
 	private PraticienSpecialiteKey key;
 	
 //Constructeurs

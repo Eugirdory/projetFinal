@@ -15,8 +15,6 @@ import {PatientService} from '../services/patient.service';
 export class InscriptionPatientComponent implements OnInit {
 
 
-  // constructor(private patientService: PatientService) { }
-
   @Input('patient')
   private patient: Patient;
   private civilite: string[];
@@ -29,11 +27,11 @@ export class InscriptionPatientComponent implements OnInit {
   ngOnInit() {
   this.civilite = ['Monsieur', 'Madame', 'Mademoiselle'];
   this.domicile = new Adresse(null, '', '' , '', '');
-  this.patient = new Patient('', '', '', '', '', '', '', this.domicile,
+  this.patient = new Patient('', '', '',  this.civilite[0], '', '', '', this.domicile,
   null);
   }
 
-  public onFormSubmit({value, valid}: { value: Patient, valid: boolean }) {
+  public onFormSubmit({value}: { value: Patient, valid: boolean }) {
     this.patient = value;
     this.patientService.insert(this.patient).subscribe(res => {
       this.newPatient.emit();
