@@ -4,6 +4,7 @@ import {PageAcceuilComponent} from './page-acceuil/page-acceuil.component';
 import {InscriptionPatientComponent} from './inscription-patient/inscription-patient.component';
 import {LoginComponent} from './login/login.component';
 import {InscriptionPraticienComponent} from './inscription-praticien/inscription-praticien.component';
+import {PraticienComponent} from './praticien/praticien.component';
 
 
 
@@ -14,6 +15,6 @@ export const routes: Routes = [
   {path: 'login', component: LoginComponent},
   {path: 'inscriptionPraticien', component: InscriptionPraticienComponent},
   {path: 'inscriptionPatient', component: InscriptionPatientComponent},
-  {path: 'login', component: LoginComponent}
+  {path: 'recherchePraticien', component: PraticienComponent}
 ];
 
