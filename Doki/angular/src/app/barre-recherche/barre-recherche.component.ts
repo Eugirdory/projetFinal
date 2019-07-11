@@ -16,9 +16,11 @@ export class BarreRechercheComponent implements OnInit {
   }
 
   ngOnInit() {
+
   }
 
   public searchNom() {
+    console.log('je cherche');
     this.praticienService.rechNom(this.mot).subscribe(res => {
       this.praticiens = res;
     });
