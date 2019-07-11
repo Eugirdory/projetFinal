@@ -1,3 +1,14 @@
-<h1>Bienvenu sur Doki ! </h1>
-<h2>Menu d'inscription</h2>
+<div class="text-center">
+<h1>Bienvenue sur Doki ! </h1>
 
+<br>
+<h2>Inscription</h2><br>
+<div class="container">
+  <h3> Vous êtes un:</h3>
+  <br>
+
+  <button class="btn btn-primary" [routerLink]="['/inscriptionPraticien']" routerLinkActive="active">Praticien</button>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  <button class="btn btn-success" [routerLink]="['/inscriptionPatient']" routerLinkActive="active">Patient</button>
+</div>
+</div>
