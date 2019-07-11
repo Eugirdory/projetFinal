@@ -2,22 +2,22 @@ import {Praticien} from './praticien';
 
 export class Specialite{
 
-  private _intitule: string;
+  private _libelle: string;
   private _praticiens: Array<Praticien> = new Array<Praticien>();
 
 
-  constructor(intitule: string, praticiens: Array<Praticien>) {
-    this._intitule = intitule;
+  constructor(libelle: string, praticiens: Array<Praticien>) {
+    this._libelle = libelle;
     this._praticiens = praticiens;
   }
 
 
-  get intitule(): string {
-    return this._intitule;
+  get libelle(): string {
+    return this._libelle;
   }
 
-  set intitule(value: string) {
-    this._intitule = value;
+  set libelle(value: string) {
+    this._libelle = value;
   }
 
   get praticiens(): Array<Praticien> {

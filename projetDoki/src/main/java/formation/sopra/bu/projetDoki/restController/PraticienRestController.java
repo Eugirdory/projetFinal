@@ -92,7 +92,7 @@ public class PraticienRestController {
 	    }
 	    
 	    @GetMapping(value= {"/{id}"})
-	    @JsonView(JsonViews.Common.class)
+	    @JsonView(JsonViews.PraticienAvecSpe.class)
 	    public ResponseEntity<Praticien> findById(@PathVariable(name="id")String id){
 	        return findPraticienById(id);
 	    }
