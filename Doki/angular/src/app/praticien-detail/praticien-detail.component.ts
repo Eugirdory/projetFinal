@@ -1,6 +1,7 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {Praticien} from '../model/praticien';
 import {PraticienService} from '../services/praticien-service';
+import {Specialite} from '../model/specialite';
 
 @Component({
   selector: '[lignePraticien]',
@@ -11,6 +12,7 @@ export class PraticienDetailComponent implements OnInit {
 
   @Input('praticien')
   private p: Praticien;
+
 
   @Output()
   private praticienRefresh = new EventEmitter();
