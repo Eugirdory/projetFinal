@@ -21,6 +21,10 @@ export class PraticienService {
     return this.http.get(this.url, {headers: this.httpHeaders});
   }
 
+  public rechNom(rech: string): Observable<any>{
+    return this.http.get(`${this.url}/rnom/` + rech, this.httpOptions);
+  }
+
   public delete(id: string): Observable<any> {
     return this.http.delete(`${this.url}/${id}`, this.httpOptions);
   }

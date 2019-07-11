@@ -15,7 +15,7 @@ public interface PraticienRepository extends JpaRepository<Praticien, String> {
 
 //OK
 	@Query("select distinct p from Praticien p left join fetch p.specialites as ss left join fetch ss.key as k left join fetch k.specialite as s where s.libelle=:libelle")
-	Optional<Praticien> findAllBySpecialite(@Param("libelle") String libelle);
+	List<Praticien> findAllBySpecialite(@Param("libelle") String libelle);
 
 //OK
 	public List<Praticien> findByNomContaining(String prenom);
