@@ -1,25 +1,15 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { Component, OnInit } from '@angular/core';
 
-import { PageAcceuilComponent } from './page-acceuil.component';
+@Component({
+  selector: 'app-page-acceuil',
+  templateUrl: './page-acceuil.component.html',
+  styleUrls: ['./page-acceuil.component.css']
+})
+export class PageAcceuilComponent implements OnInit {
 
-describe('PageAcceuilComponent', () => {
-  let component: PageAcceuilComponent;
-  let fixture: ComponentFixture<PageAcceuilComponent>;
+  constructor() { }
 
-  beforeEach(async(() => {
-    TestBed.configureTestingModule({
-      declarations: [ PageAcceuilComponent ]
-    })
-    .compileComponents();
-  }));
+  ngOnInit() {
+  }
 
-  beforeEach(() => {
-    fixture = TestBed.createComponent(PageAcceuilComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
-  });
-
-  it('should create', () => {
-    expect(component).toBeTruthy();
-  });
-});
+}

@@ -40,7 +40,7 @@ public class PraticienRestController {
 		@Autowired
 		private PraticienRepository praticienRepository; 
 		
-		@JsonView(JsonViews.Common.class)
+		@JsonView(JsonViews.PraticienAvecSpe.class)
 	    @GetMapping(value= {"","/"})
 	    public ResponseEntity<List<Praticien>> findAll(){
 	        return list();
@@ -52,6 +52,27 @@ public class PraticienRestController {
 	    public ResponseEntity<List<Praticien>> findAllAvecRdv(){
 	        return list();
 	    }
+	    
+	    //recherche par nom
+	    @JsonView(JsonViews.Common.class)
+	    @GetMapping(value = {"/rnom/{rech}"})
+	    public ResponseEntity<List<Praticien>> listNom(@PathVariable(name = "rech") String rech){
+	    	return new ResponseEntity<List<Praticien>>(praticienRepository.findByNomContaining(rech.toLowerCase()),HttpStatus.OK);
+	    }
+	    
+	    //recherche par prenom
+	    @JsonView(JsonViews.Common.class)
+	    @GetMapping(value = {"/rprenom/{rech}"})
+	    public ResponseEntity<List<Praticien>> listPrenom(@PathVariable(name = "rech") String rech){
+	    	return new ResponseEntity<List<Praticien>>(praticienRepository.findByPrenomContaining(rech.toLowerCase()),HttpStatus.OK);
+	    }
+	    
+	    //recherche par specialite
+//	    @JsonView(JsonViews.Common.class)
+//	    @GetMapping(value = {"/rspecilite/{rech}"})
+//	    public ResponseEntity<List<Praticien>> listSpecialite(@PathVariable(name = "rech") String rech){
+//	    	return new ResponseEntity<List<Praticien>>(praticienRepository.findAllBySpecialite(rech.toLowerCase()),HttpStatus.OK);
+//	    }
 	    
 	    public ResponseEntity<List<Praticien>> list(){
 	        return new ResponseEntity<List<Praticien>>(praticienRepository.findAll(),HttpStatus.OK);

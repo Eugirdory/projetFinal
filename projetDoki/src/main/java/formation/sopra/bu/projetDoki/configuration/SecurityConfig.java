@@ -21,6 +21,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
 	private MyUserDetailsService userDetailsService;
 	
 	public void configure(HttpSecurity http) throws Exception{
+
 		http.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS).and().authorizeRequests()
 		.antMatchers(HttpMethod.OPTIONS).anonymous();
 //		http.authorizeRequests().antMatchers("/rest/praticien").hasRole("PRATICIEN").and().httpBasic().and().csrf().disable();
@@ -31,12 +32,12 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
 	}
 	
 	
-	protected void configure(AuthenticationManagerBuilder auth) throws Exception{
-		
-		auth.userDetailsService(userDetailsService).passwordEncoder(getPasswordEncoder());
-	}
-	@ Bean 
-	public PasswordEncoder getPasswordEncoder() {
-		return new BCryptPasswordEncoder();
-	}
-}
+
+  protected void configure(AuthenticationManagerBuilder auth) throws Exception{
+  
+  auth.userDetailsService(userDetailsService).passwordEncoder(
+  getPasswordEncoder()); }
+  
+  @ Bean public PasswordEncoder getPasswordEncoder() { return new
+  BCryptPasswordEncoder(); } }
+ 

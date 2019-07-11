@@ -1,4 +1,6 @@
 import {Component, OnInit} from '@angular/core';
+import {Praticien} from '../model/praticien';
+import {PraticienService} from '../services/praticien-service';
 
 @Component({
   selector: 'app-barre-recherche',
@@ -7,15 +9,21 @@ import {Component, OnInit} from '@angular/core';
 })
 export class BarreRechercheComponent implements OnInit {
 
-  private mot: string;
+  private mot = '';
+  praticiens: Praticien[] = [];
 
-  constructor() {
+  constructor(private praticienService: PraticienService) {
   }
 
   ngOnInit() {
+
   }
 
-  public searchAction() {
+  public searchNom() {
+
+    this.praticienService.rechNom(this.mot).subscribe(res => {
+      this.praticiens = res;
+    });
 
   }
 

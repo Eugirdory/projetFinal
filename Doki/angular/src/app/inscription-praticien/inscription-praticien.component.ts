@@ -13,7 +13,9 @@ import {ActivatedRoute, Router} from '@angular/router';
   styleUrls: ['./inscription-praticien.component.css']
 })
 export class InscriptionPraticienComponent implements OnInit {
+
   @Input('praticien')
+
   private praticien: Praticien;
   private civilite: string[];
   private specialites: Specialite [] = [];
@@ -37,3 +39,4 @@ export class InscriptionPraticienComponent implements OnInit {
 
   }
 }
+

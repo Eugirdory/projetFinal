@@ -1,10 +1,11 @@
+
 import {Component, EventEmitter, Input, OnInit} from '@angular/core';
 import {Patient} from '../model/patient';
 import {Adresse} from '../model/adresse';
-import {PraticienService} from '../services/praticien-service';
 import {Router} from '@angular/router';
 import {PatientService} from '../services/patient.service';
-import {formatDate} from '@angular/common';
+
+
 
 @Component({
   selector: 'app-inscription-patient',
@@ -13,10 +14,14 @@ import {formatDate} from '@angular/common';
 })
 export class InscriptionPatientComponent implements OnInit {
 
+
+  // constructor(private patientService: PatientService) { }
+
   @Input('patient')
   private patient: Patient;
   private civilite: string[];
   private domicile: Adresse;
+
   private newPatient = new EventEmitter();
   constructor(private patientService: PatientService, private router: Router) {
   }
@@ -35,5 +40,4 @@ export class InscriptionPatientComponent implements OnInit {
       this.router.navigate(['/acceuil']);
   });
   }
-
 }
