@@ -5,13 +5,17 @@ import {Motif} from '../model/motif';
 import {Disponibilite} from '../model/disponibilite';
 import {PraticienService} from '../services/praticien-service';
 import {Adresse} from '../model/adresse';
+import {ActivatedRoute, Router} from '@angular/router';
+
 @Component({
   selector: 'app-inscription-praticien',
   templateUrl: './inscription-praticien.component.html',
   styleUrls: ['./inscription-praticien.component.css']
 })
 export class InscriptionPraticienComponent implements OnInit {
+
   @Input('praticien')
+
   private praticien: Praticien;
   private civilite: string[];
   private specialites: Specialite [] = [];
@@ -19,17 +23,20 @@ export class InscriptionPraticienComponent implements OnInit {
   private dispo: Disponibilite [] = [];
   private newPraticien = new EventEmitter();
   private cabinet: Adresse;
-  constructor(private praticienService: PraticienService) { }
+  constructor(private praticienService: PraticienService, private router: Router) { }
   ngOnInit() {
     this.civilite = ['Monsieur', 'Madame', 'Mademoiselle'];
     this.cabinet = new Adresse(null, '', '' , '', '');
     this.praticien = new Praticien(
-      '', '', '', '', '', '', '', this.cabinet, [], []);
+      '', '', '', this.civilite[0], '', '', '', this.cabinet, [], []);
   }
   public onFormSubmit({ value }: { value: Praticien, valid: boolean }) {
     this.praticien = value;
     this.praticienService.insert(this.praticien).subscribe(res => {
       this.newPraticien.emit();
+      this.router.navigate(['/acceuil']);
     });
+
   }
 }
+

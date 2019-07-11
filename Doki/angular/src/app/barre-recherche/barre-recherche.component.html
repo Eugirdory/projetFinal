@@ -1,14 +1,15 @@
 
- <!-- <select class=form-control name="deroulant" >
-    <option >Type de recherche</option>
-    <option value=un>Ville</option>
-    <option value=deux>Spécialité</option>
-    <option value=trois>Trois</option>
-  </select>-->
-  <input type="text" class="form-control" [(ngModel)]="mot" placeholder="Recherche...">
-  <span class="input-group-btn">
+<select class=form-control name="deroulant" >
+  <option >Type de recherche</option>
+  <option value=un>Ville</option>
+  <option value=deux>Spécialité</option>
+  <option value=trois>Trois</option>
+</select>
+<input type="text" class="form-control" [(ngModel)]="mot" placeholder="Recherche...">
+<span class="input-group-btn">
+
     <button (click)="searchNom()" class="btn btn-default glyphicon glyphicon-search"
             type="submit">Rechercher par nom et prénom</button>
   </span>
-  {{mot}}
-
+{{mot}}
+{{mot}}

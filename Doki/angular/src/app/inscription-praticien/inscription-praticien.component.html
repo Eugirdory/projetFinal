@@ -1,3 +1,4 @@
+
 <div class="row custom-row">
   <div class= "col-sm-5 custom-container jumbotron">
     <form class="form-horizontal" novalidate
@@ -54,16 +55,16 @@
         <div *ngIf="(password.invalid && password.touched)"
              class="alert alert-danger">
           <div *ngIf = "password.invalid; else nomatch">
-            Le Password doit être composé d'au moins 6 caractères
+            Le mot de passe doit être composé d'au moins 6 caractères
           </div>
           <ng-template #nomatch >
-            Le Password est incorrect
+            Le mot de passe est incorrect
           </ng-template>
         </div>
         <!--- Select gender Block --->
         <div class="form-group">
           <label for="select">Civilite</label>
-          <select id="select">
+          <select id="select" ngModel = "praticien.civilite" name = "civilite">
             <option *ngFor = "let c of civilite"
                     [value] = "c"> {{c}}
             </option>
@@ -82,7 +83,7 @@
         <div *ngIf="nom.invalid && (nom.dirty || nom.touched)"
              class="alert alert-danger">
           <div *ngIf = "nom.errors?.required">
-            Le champs Nom doit être complété
+            Le champs nom doit être complété
           </div>
         </div>
         <div class="form-group">
@@ -97,7 +98,7 @@
         <div *ngIf="prenom.invalid && (prenom.dirty || prenom.touched)"
              class="alert alert-danger">
           <div *ngIf = "prenom.errors?.required">
-            Le champs Prenom doit être complété
+            Le champs prenom doit être complété
           </div>
         </div>
         <div class="form-group">
@@ -112,7 +113,7 @@
         <div *ngIf="telephone.invalid && (telephone.dirty || telephone.touched)"
              class="alert alert-danger">
           <div *ngIf = "telephone.errors?.required">
-            Le champs Telephone doit être complété
+            Le champs téléphone doit être complété
           </div>
         </div>
         Adresse&nbsp;:<br/>
@@ -183,14 +184,9 @@
                  name="cabinet.code"
                  id="inputCode"
                  #code = "ngModel"
-                 placeholder="Code" required>
+                 placeholder="Code">
         </div>
-        <div *ngIf="code.invalid && (code.dirty || code.touched)"
-             class="alert alert-danger">
-          <div *ngIf = "code.errors?.required">
-            Le champs code doit être complété
-          </div>
-        </div>
+
         <!---specialite--->
         <div class="form-group">
           <label for="select1">Spécialité 1</label>
@@ -276,6 +272,6 @@
         </div>
       </fieldset>
     </form>
-    <!--{{signupForm.value | json}}-->
+    {{signupForm.value | json}}
   </div>
 </div>

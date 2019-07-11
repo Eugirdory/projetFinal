@@ -17,7 +17,9 @@ import {PraticienService} from './services/praticien-service';
 import { PraticienComponent } from './praticien/praticien.component';
 import { PraticienDetailComponent } from './praticien-detail/praticien-detail.component';
 import {InscriptionPraticienComponent} from './inscription-praticien/inscription-praticien.component';
-import {InscriptionPatientComponent} from './inscription-patient/inscription-patient.component';
+
+import { InscriptionPatientComponent } from './inscription-patient/inscription-patient.component';
+
 
 
 @NgModule({
@@ -32,6 +34,7 @@ import {InscriptionPatientComponent} from './inscription-patient/inscription-pat
     PraticienDetailComponent,
     InscriptionPraticienComponent,
     InscriptionPatientComponent,
+
 
   ],
   imports: [
