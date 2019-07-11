@@ -30,13 +30,15 @@ public class Praticien extends Personne {
 	@Column(name = "rdvs_avec-patient")
 	@JsonView(JsonViews.PraticienAvecRdv.class)
 	private List<RendezVous> rdvs;
+	
+	private Adresse cabinet;
 
 //Constructeurs
 	public Praticien() {
 	}
 
 	public Praticien(String mail, String username, String password, String civilite, String nom, String prenom,
-			String telephone, List<PraticienSpecialite> specialites, List<PraticienMotif> motifs,
+			String telephone, Adresse cabinet, List<PraticienSpecialite> specialites, List<PraticienMotif> motifs,
 			List<Disponibilite> dispos, List<RendezVous> rdvs, boolean enable, List<UserRole> roles, int version) {
 		super(mail, username, password, civilite, nom, prenom, telephone, enable, roles, version);
 		this.specialites = specialites;

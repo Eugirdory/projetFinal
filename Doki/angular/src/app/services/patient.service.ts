@@ -11,7 +11,7 @@ import {Observable} from 'rxjs';
   providedIn: 'root'
 })
 export class PatientService {
-  private url = 'http://localhost:8080/boot/rest/praticien';
+  private url = 'http://localhost:8080/boot/rest/patient';
   private httpHeaders: HttpHeaders;
   private httpOptions: any;
 
