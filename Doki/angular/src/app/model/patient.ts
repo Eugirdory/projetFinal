@@ -9,8 +9,9 @@ export class Patient extends Personne {
   private _rdvs: Array<RendezVous> = new Array<RendezVous>();
 
 
-  constructor(civilite?: Civilite, nom?: string, prenom?: string, mail?: string, telephone?: string, dateNaissance?: Date, domicile?: Adresse, rdvs?: RendezVous[]) {
-    super(civilite, nom, prenom, mail, telephone);
+  constructor(mail?: string, username?: string, password?: string, civilite?: string, nom?: string, prenom?: string, telephone?: string,
+              domicile?: Adresse, dateNaissance?: Date, rdvs?: RendezVous[]) {
+    super(mail, username, password, civilite, nom, prenom, telephone);
     this._dateNaissance = dateNaissance;
     this._domicile = domicile;
     this._rdvs = rdvs;

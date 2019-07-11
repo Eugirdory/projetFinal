@@ -24,9 +24,8 @@ import org.springframework.web.util.UriComponentsBuilder;
 
 import com.fasterxml.jackson.annotation.JsonView;
 
-import formation.sopra.bu.projetDoki.metier.Patient;
 import formation.sopra.bu.projetDoki.metier.Praticien;
-import formation.sopra.bu.projetDoki.repository.PatientRepository;
+
 import formation.sopra.bu.projetDoki.repository.PraticienRepository;
 import formation.sopra.bu.projetDoki.view.JsonViews;
 
@@ -34,6 +33,7 @@ import formation.sopra.bu.projetDoki.view.JsonViews;
 @RestController
 @RequestMapping("/rest/praticien")
 @CrossOrigin(origins="*")
+
 public class PraticienRestController {
 
 		
@@ -77,9 +77,9 @@ public class PraticienRestController {
 	    public ResponseEntity<List<Praticien>> list(){
 	        return new ResponseEntity<List<Praticien>>(praticienRepository.findAll(),HttpStatus.OK);
 	    }
-	    
+	
 	    @PostMapping(value= {"","/"})
-	    public ResponseEntity<Void> create(@Valid @RequestBody Praticien praticien,BindingResult br, UriComponentsBuilder ucb){
+	    public ResponseEntity<Void> create (@Valid @RequestBody Praticien praticien,BindingResult br, UriComponentsBuilder ucb){
 	        if(br.hasErrors()) {
 	            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
 	        }
@@ -88,7 +88,7 @@ public class PraticienRestController {
 	        URI uri=ucb.path("/rest/praticien/{id}").buildAndExpand(praticien.getUsername()).toUri();
 	        headers.setLocation(uri);
 	        
-	        return new ResponseEntity<>(headers, HttpStatus.CREATED);
+	        return new ResponseEntity<Void>(headers, HttpStatus.CREATED);
 	    }
 	    
 	    @GetMapping(value= {"/{id}"})
