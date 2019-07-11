@@ -1,8 +1,10 @@
 
-
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit} from '@angular/core';
 import {Patient} from '../model/patient';
 import {Adresse} from '../model/adresse';
+import {Router} from '@angular/router';
+import {PatientService} from '../services/patient.service';
+
 
 
 @Component({
@@ -20,23 +22,22 @@ export class InscriptionPatientComponent implements OnInit {
   private civilite: string[];
   private domicile: Adresse;
 
-
-  constructor() {
+  private newPatient = new EventEmitter();
+  constructor(private patientService: PatientService, private router: Router) {
   }
 
   ngOnInit() {
+  this.civilite = ['Monsieur', 'Madame', 'Mademoiselle'];
+  this.domicile = new Adresse(null, '', '' , '', '');
+  this.patient = new Patient('', '', '', '', '', '', '', this.domicile,
+  null);
+  }
 
-    /* this.civilite = ['Monsieur', 'Madame', 'Mademoiselle'];
-
-     this.patient = new Patient(this.civilite[0], this.patient.password, this.patient.username, this.patient.nom,
-       this.patient.prenom, this.patient.dateNaissance, this.patient.mail, this.patient.telephone, this.patient.domicile, );
-   }*/
-
-
-    /*public onFormSubmit({value, valid}: { value: Patient, valid: boolean }) {
-      this.patient = value;
-      console.log(this.patient);
-
-    }*/
+  public onFormSubmit({value, valid}: { value: Patient, valid: boolean }) {
+    this.patient = value;
+    this.patientService.insert(this.patient).subscribe(res => {
+      this.newPatient.emit();
+      this.router.navigate(['/acceuil']);
+  });
   }
 }
