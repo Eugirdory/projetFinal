@@ -53,6 +53,14 @@ public class Praticien extends Personne {
 		return motifs;
 	}
 
+	public Adresse getCabinet() {
+		return cabinet;
+	}
+
+	public void setCabinet(Adresse cabinet) {
+		this.cabinet = cabinet;
+	}
+
 	public List<PraticienSpecialite> getSpecialites() {
 		return specialites;
 	}
