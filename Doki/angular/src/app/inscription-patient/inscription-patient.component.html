@@ -12,7 +12,7 @@
 
         <!--- Email Block --->
         <div class="form-group">
-          <label for="inputEmail">Email&nbsp;:&nbsp; </label>
+          <label for="inputEmail">Email&nbsp;:&nbsp;</label>
           <input type="text"
                  ngModel
                  id="inputEmail"
@@ -32,7 +32,7 @@
         </div>
         <!-- username-->
         <div class="form-group">
-          <label for="inputUsername">Identifiant&nbsp;:&nbsp; : </label>
+          <label for="inputUsername">Identifiant&nbsp;:&nbsp;</label>
           <input type="text"
                  ngModel
                  name="username"
@@ -68,7 +68,7 @@
         </div>
         <!--- Select gender Block --->
         <div class="form-group">
-          <label for="select">Civilite&nbsp;:&nbsp;</label>
+          <label for="select">Civilité&nbsp;:&nbsp;</label>
           <select id="select" ngModel = "praticien.civilite" name = "civilite">
             <option *ngFor = "let c of civilite"
                     [value] = "c"> {{c}}
@@ -90,11 +90,11 @@
         <div *ngIf="nom.invalid && (nom.dirty || nom.touched)"
              class="alert alert-danger">
           <div *ngIf="nom.errors?.required">
-            Le champs Nom doit être complété
+            Le champs nom doit être complété
           </div>
         </div>
         <div class="form-group">
-          <label for="inputPrenom">Prenom&nbsp;:&nbsp;</label>
+          <label for="inputPrenom">Prénom&nbsp;:&nbsp;</label>
           <input type="text"
                  ngModel
                  name="prenom"
@@ -104,13 +104,13 @@
         <div *ngIf="prenom.invalid && (prenom.dirty || prenom.touched)"
              class="alert alert-danger">
           <div *ngIf="prenom.errors?.required">
-            Le champs Prenom doit être complété
+            Le champs prénom doit être complété
           </div>
         </div>
 
 
         <div class="form-group">
-          <label for="inputTelephone">Telephone&nbsp;:&nbsp;</label>
+          <label for="inputTelephone">Téléphone&nbsp;:&nbsp;</label>
           <input type="text"
                  ngModel
                  name="telephone"
@@ -138,13 +138,13 @@
         <div *ngIf="dateNaissance.invalid && (dateNaissance.dirty || dateNaissance.touched)"
              class="alert alert-danger">
           <div *ngIf="dateNaissance.errors?.required">
-            Le champs date de naissance doit être renseigné doit être complété
+            Le champs date de naissance doit être renseigné
           </div>
         </div>
 
-        Adresse&nbsp;:<br/>
+        <br/>Adresse&nbsp;:&nbsp;<br/>
         <div class="form-group">
-          <label for="inputNumero">Numero&nbsp;:&nbsp;</label>
+          <label for="inputNumero">Numéro&nbsp;:&nbsp;</label>
           <input type="text"
                  ngModel
                  name="numero"
@@ -155,7 +155,7 @@
         <div *ngIf="numero.invalid && (numero.dirty || numero.touched)"
              class="alert alert-danger">
           <div *ngIf="numero.errors?.required">
-            Le champs numero doit être complété
+            Le champs numéro doit être complété
           </div>
         </div>
         <div class="form-group">
@@ -174,7 +174,7 @@
           </div>
         </div>
         <div class="form-group">
-          <label for="inputCp">CP&nbsp;:&nbsp;</label>
+          <label for="inputCp">Code Postal&nbsp;:&nbsp;</label>
           <input type="text"
                  ngModel
                  name="cp"
@@ -185,7 +185,7 @@
         <div *ngIf="cp.invalid && (cp.dirty || cp.touched)"
              class="alert alert-danger">
           <div *ngIf="cp.errors?.required">
-            Le champs cp doit être complété
+            Le champs code postal doit être complété
           </div>
         </div>
         <div class="form-group">
@@ -212,7 +212,7 @@
         </div>
       </fieldset>
     </form>
-    {{signupForm.value | json}}
+   <!-- {{signupForm.value | json}}-->
   </div>
 
 </div>
