@@ -23,20 +23,25 @@ export class InscriptionPraticienComponent implements OnInit {
   private dispo: Disponibilite [] = [];
   private newPraticien = new EventEmitter();
   private cabinet: Adresse;
-  constructor(private praticienService: PraticienService, private router: Router) { }
+
+  constructor(private praticienService: PraticienService, private router: Router) {
+  }
+
   ngOnInit() {
     this.civilite = ['Monsieur', 'Madame', 'Mademoiselle'];
     //this.cabinet = new Adresse(null, '', '' , '', '');
     this.praticien = new Praticien(
-      '', '', '', this.civilite[0], '', '', '', this.cabinet = new Adresse(null, '', '' , '', ''), [], []);
+      '', '', '', this.civilite[0], '', '', '', this.cabinet = new Adresse(null, '', '', '', ''), [], []);
   }
-  public onFormSubmit({ value }: { value: Praticien, valid: boolean }) {
+
+  public onFormSubmit({value}: { value: Praticien, valid: boolean }) {
     this.praticien = value;
     this.praticienService.insert(this.praticien).subscribe(res => {
       this.newPraticien.emit();
-      this.router.navigate(['/acceuil']);
     });
-
+  }
+  action()
+  {
+    this.router.navigate(['/accueil']);
   }
 }
-
