@@ -2,3 +2,8 @@
 form#myform label { display:inline-block; width:100px; }
 form#myform input { display:inline-block; }
 
+.colonne-centree
+{
+  float: none;
+  margin: 0 auto;
+}

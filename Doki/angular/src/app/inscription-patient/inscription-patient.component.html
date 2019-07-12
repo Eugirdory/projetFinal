@@ -3,14 +3,9 @@
 
     <form id="myform" class="form-horizontal" novalidate
           (ngSubmit)="onFormSubmit(signupForm)" #signupForm="ngForm">
-
       <fieldset>
         <h1>Inscription</h1>
-
-
-
-
-
+        <br>
         <!-- username-->
         <div class="form-group">
           <label for="inputUsername">Identifiant&nbsp;:&nbsp;</label>
@@ -207,9 +202,9 @@
         </div>
         <!--- Buttons Block --->
         <div class="form-group">
-          <button type="reset" class="btn btn-default">Annuler</button>
-          <button type="submit" class="btn btn-success" [disabled]="!signupForm.form.valid">Valider
-          </button>
+          <button class="btn btn-warning" [routerLink]="['/accueil']" routerLinkActive="active">Annuler</button>
+
+          <button type="submit" class="btn btn-success" [disabled]="!signupForm.form.valid">Valider</button>
           <!--boutton submit desactive jusqua ce que le formulaire soit valide-->
         </div>
       </fieldset>

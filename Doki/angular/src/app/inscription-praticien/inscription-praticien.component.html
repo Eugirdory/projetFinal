@@ -286,8 +286,11 @@
 </div>
         <!--- Buttons Block --->
         <div class="form-group">
-          <button class="btn btn-warning" [routerLink]="['/accueil']" routerLinkActive="active">Annuler</button>
-          <button type="submit" class="btn btn-success" [disabled]="!signupForm.form.valid"[routerLink]="['/accueil']" routerLinkActive="active">Valider</button>
+
+          <button class="btn btn-warning" [routerLink]="['/accueil']" routerLinkActive="active">Annuler</button>&nbsp;&nbsp;&nbsp;
+
+          <button type="submit" class="btn btn-success" [disabled]="!signupForm.form.valid">Valider</button>
+
           <!--boutton submit desactive jusqua ce que le formulaire soit valide-->
         </div>
       </fieldset>
