@@ -182,6 +182,7 @@
                  #cp="ngModel"
               required>
         </div>
+        
         <div *ngIf="cp.invalid && (cp.dirty || cp.touched)"
              class="alert alert-danger">
           <div *ngIf="cp.errors?.required">
