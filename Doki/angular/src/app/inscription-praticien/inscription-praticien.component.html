@@ -4,16 +4,16 @@
     <form class="form-horizontal" novalidate
           (ngSubmit)="onFormSubmit(signupForm)" #signupForm = "ngForm">
       <fieldset>
-        <legend>Inscription</legend>
+       <legend>Inscription</legend>
         <!--- Email Block --->
         <div class="form-group">
-          <label for="inputEmail">Email</label>
+          <label for="inputEmail">Email&nbsp;:&nbsp;</label>
           <input type="text"
                  ngModel
                  id="inputEmail"
                  name="mail"
                  #mail = "ngModel"
-                 placeholder="Email"
+
                  pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" required>
         </div>
         <div *ngIf="mail.invalid && (mail.dirty || mail.touched)"
@@ -27,13 +27,13 @@
         </div>
         <!-- username-->
         <div class="form-group">
-          <label for="inputUsername">Identifiant</label>
+          <label for="inputUsername">Identifiant&nbsp;:&nbsp;</label>
           <input type="text"
                  ngModel
                  name="username"
                  id="inputUsername"
                  #username = "ngModel"
-                 placeholder="Identifiant" required>
+              required>
         </div>
         <div *ngIf="username.invalid && (username.dirty || username.touched)"
              class="alert alert-danger">
@@ -43,13 +43,13 @@
         </div>
         <!--- Password Block --->
         <div class="form-group">
-          <label for="inputPassword">Mot de Passe</label>
+          <label for="inputPassword">Mot de Passe&nbsp;:&nbsp;</label>
           <input type="password"
                  ngModel
                  name="password"
                  id="inputPassword"
                  #password = "ngModel"
-                 placeholder="Password"
+
                  minlength="6" required>
         </div>
         <div *ngIf="(password.invalid && password.touched)"
@@ -63,7 +63,7 @@
         </div>
         <!--- Select gender Block --->
         <div class="form-group">
-          <label for="select">Civilite</label>
+          <label for="select">Civilité&nbsp;:&nbsp;</label>
           <select id="select" ngModel = "praticien.civilite" name = "civilite">
             <option *ngFor = "let c of civilite"
                     [value] = "c"> {{c}}
@@ -72,13 +72,13 @@
         </div>
         <!---nom prenom telephone adresse--->
         <div class="form-group">
-          <label for="inputNom">Nom</label>
+          <label for="inputNom">Nom&nbsp;:&nbsp;</label>
           <input type="text"
                  ngModel
                  name="nom"
                  id="inputNom"
                  #nom = "ngModel"
-                 placeholder="Nom" required>
+               required>
         </div>
         <div *ngIf="nom.invalid && (nom.dirty || nom.touched)"
              class="alert alert-danger">
@@ -87,28 +87,28 @@
           </div>
         </div>
         <div class="form-group">
-          <label for="inputPrenom">Prenom</label>
+          <label for="inputPrenom">Prénom&nbsp;:&nbsp;</label>
           <input type="text"
                  ngModel
                  name="prenom"
                  id="inputPrenom"
                  #prenom = "ngModel"
-                 placeholder="Prenom" required>
+                required>
         </div>
         <div *ngIf="prenom.invalid && (prenom.dirty || prenom.touched)"
              class="alert alert-danger">
           <div *ngIf = "prenom.errors?.required">
-            Le champs prenom doit être complété
+            Le champs prénom doit être complété
           </div>
         </div>
         <div class="form-group">
-          <label for="inputTelephone">Telephone</label>
+          <label for="inputTelephone">Téléphone&nbsp;:&nbsp;</label>
           <input type="text"
                  ngModel
                  name="telephone"
                  id="inputTelephone"
                  #telephone = "ngModel"
-                 placeholder="Telephone" required>
+                  required>
         </div>
         <div *ngIf="telephone.invalid && (telephone.dirty || telephone.touched)"
              class="alert alert-danger">
@@ -116,30 +116,30 @@
             Le champs téléphone doit être complété
           </div>
         </div>
-        Adresse&nbsp;:<br/>
+        <br/>Adresse&nbsp;:&nbsp;<br/>
         <div class="form-group">
-          <label for="inputNumero">Numero</label>
+          <label for="inputNumero">Numéro&nbsp;:&nbsp;</label>
           <input type="text"
                  ngModel
                  name="cabinet.numero"
                  id="inputNumero"
                  #numero = "ngModel"
-                 placeholder="Numero" required>
+                  required>
         </div>
         <div *ngIf="numero.invalid && (numero.dirty || numero.touched)"
              class="alert alert-danger">
           <div *ngIf = "numero.errors?.required">
-            Le champs numero doit être complété
+            Le champs numéro doit être complété
           </div>
         </div>
         <div class="form-group">
-          <label for="inputRue">Rue</label>
+          <label for="inputRue">Rue&nbsp;:&nbsp;</label>
           <input type="text"
                  ngModel
                  name="cabinet.rue"
                  id="inputRue"
                  #rue = "ngModel"
-                 placeholder="Rue"required>
+                 required>
         </div>
         <div *ngIf="rue.invalid && (rue.dirty || rue.touched)"
              class="alert alert-danger">
@@ -148,28 +148,27 @@
           </div>
         </div>
         <div class="form-group">
-          <label for="inputCp">CP</label>
+          <label for="inputCp">Code&nbsp;Postal&nbsp;:&nbsp;</label>
           <input type="text"
                  ngModel
                  name="cabinet.cp"
                  id="inputCp"
                  #cp = "ngModel"
-                 placeholder="CP" required>
+                 required>
         </div>
         <div *ngIf="cp.invalid && (cp.dirty || cp.touched)"
              class="alert alert-danger">
           <div *ngIf = "cp.errors?.required">
-            Le champs cp doit être complété
+            Le champs code postal doit être complété
           </div>
         </div>
         <div class="form-group">
-          <label for="inputVille">Ville</label>
+          <label for="inputVille">Ville&nbsp;:&nbsp;</label>
           <input type="text"
                  ngModel
                  name="cabinet.ville"
                  id="inputVille"
-                 #ville = "ngModel"
-                 placeholder="Ville" required>
+                 #ville = "ngModel"  required>
         </div>
         <div *ngIf="ville.invalid && (ville.dirty || ville.touched)"
              class="alert alert-danger">
@@ -178,18 +177,18 @@
           </div>
         </div>
         <div class="form-group">
-          <label for="inputCode">Code</label>
+          <label for="inputCode">Code&nbsp;:&nbsp;</label>
           <input type="text"
                  ngModel
                  name="cabinet.code"
                  id="inputCode"
                  #code = "ngModel"
-                 placeholder="Code">
+        >
         </div>
 
         <!---specialite--->
         <div class="form-group">
-          <label for="select1">Spécialité 1</label>
+          <label for="select1">Spécialité&nbsp;1&nbsp;:&nbsp;</label>
           <select id="select1">
             <option>Généraliste</option>
             <option>Pédiatre</option>
@@ -203,7 +202,7 @@
           </select>
         </div>
         <div class="form-group">
-          <label for="select2">Spécialité 2</label>
+          <label for="select2">Spécialité 2&nbsp;:&nbsp;</label>
           <select id="select2">
             <option>Généraliste</option>
             <option>Pédiatre</option>
@@ -214,10 +213,11 @@
             <option>ORL</option>
             <option>Cardiologue</option>
             <option>Dermatologue</option>
+            <option>Aucune</option>
           </select>
         </div>
         <div class="form-group">
-          <label for="select3">Spécialité 3</label>
+          <label for="select3">Spécialité&nbsp;3&nbsp;:&nbsp;</label>
           <select id="select3">
             <option>Généraliste</option>
             <option>Pédiatre</option>
@@ -228,17 +228,18 @@
             <option>ORL</option>
             <option>Cardiologue</option>
             <option>Dermatologue</option>
+            <option>Aucune</option>
           </select>
         </div>
         <!---motif--->
         <div class="form-group">
-          <label for="inputMotif1">Motif 1</label>
+          <label for="inputMotif1">Motif&nbsp;1&nbsp;:&nbsp;</label>
           <input type="text"
                  ngModel
                  name="motifs"
                  id="inputMotif1"
                  #motif1 = "ngModel"
-                 placeholder="Motif1" required>
+                 required>
         </div>
         <div *ngIf="motif1.invalid && (motif1.dirty || motif1.touched)"
              class="alert alert-danger">
@@ -247,31 +248,31 @@
           </div>
         </div>
         <div class="form-group">
-          <label for="inputMotif2">Motif 2</label>
+          <label for="inputMotif2">Motif&nbsp;2&nbsp;:&nbsp;</label>
           <input type="text"
                  ngModel
                  name="motifs"
                  id="inputMotif2"
                  #motif2 = "ngModel"
-                 placeholder="Motif2" >
+                 >
         </div>
         <div class="form-group">
-          <label for="inputMotif3">Motif3</label>
+          <label for="inputMotif3">Motif&nbsp;3&nbsp;:&nbsp;</label>
           <input type="text"
                  ngModel
                  name="motifs"
                  id="inputMotif3"
                  #motif3 = "ngModel"
-                 placeholder="Motif3" >
+                 >
         </div>
         <!--- Buttons Block --->
         <div class="form-group">
           <button type="reset" class="btn btn-default">Annuler</button>
-          <button type="submit" class="btn btn-success" [disabled]="!signupForm.form.valid">Passer à l'étape suivante</button>
+          <button type="submit" class="btn btn-success" [disabled]="!signupForm.form.valid">Valider</button>
           <!--boutton submit desactive jusqua ce que le formulaire soit valide-->
         </div>
       </fieldset>
     </form>
-    {{signupForm.value | json}}
+    <!--{{signupForm.value | json}}-->
   </div>
 </div>
