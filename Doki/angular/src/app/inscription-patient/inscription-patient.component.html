@@ -1,16 +1,11 @@
 <div class="row custom-row">
   <div class="col-sm-5 custom-container jumbotron">
 
-    <form class="form-horizontal" novalidate
+    <form id="myform" class="form-horizontal" novalidate
           (ngSubmit)="onFormSubmit(signupForm)" #signupForm="ngForm">
-
       <fieldset>
-        <legend>Inscription</legend>
-
-
-
-
-
+        <h1>Inscription</h1>
+        <br>
         <!-- username-->
         <div class="form-group">
           <label for="inputUsername">Identifiant&nbsp;:&nbsp;</label>
@@ -183,6 +178,7 @@
                  #cp="ngModel"
               required>
         </div>
+        
         <div *ngIf="cp.invalid && (cp.dirty || cp.touched)"
              class="alert alert-danger">
           <div *ngIf="cp.errors?.required">
@@ -206,9 +202,9 @@
         </div>
         <!--- Buttons Block --->
         <div class="form-group">
-          <button type="reset" class="btn btn-default">Annuler</button>
-          <button type="submit" class="btn btn-success" [disabled]="!signupForm.form.valid">Valider
-          </button>
+          <button class="btn btn-warning" [routerLink]="['/accueil']" routerLinkActive="active">Annuler</button>
+
+          <button type="submit" class="btn btn-success" [disabled]="!signupForm.form.valid">Valider</button>
           <!--boutton submit desactive jusqua ce que le formulaire soit valide-->
         </div>
       </fieldset>

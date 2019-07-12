@@ -1,279 +1,299 @@
 
-<div class="row custom-row">
-  <div class= "col-sm-5 custom-container jumbotron">
-    <form class="form-horizontal" novalidate
+    <form id="myform" class="form-horizontal" novalidate
           (ngSubmit)="onFormSubmit(signupForm)" #signupForm = "ngForm">
       <fieldset>
-       <legend>Inscription</legend>
 
-        <!-- username-->
-        <div class="form-group">
-          <label for="inputUsername">Identifiant&nbsp;:&nbsp;</label>
-          <input type="text"
-                 ngModel
-                 name="username"
-                 id="inputUsername"
-                 #username = "ngModel"
-              required>
-        </div>
-        <div *ngIf="username.invalid && (username.dirty || username.touched)"
-             class="alert alert-danger">
-          <div *ngIf = "username.errors?.required">
-            Le champs identifiant doit être complété
-          </div>
-        </div>
-        <!--- Password Block --->
-        <div class="form-group">
-          <label for="inputPassword">Mot de Passe&nbsp;:&nbsp;</label>
-          <input type="password"
-                 ngModel
-                 name="password"
-                 id="inputPassword"
-                 #password = "ngModel"
+      <h1>Inscription</h1>
+<br>
 
-                 minlength="6" required>
-        </div>
-        <div *ngIf="(password.invalid && password.touched)"
-             class="alert alert-danger">
-          <div *ngIf = "password.invalid; else nomatch">
-            Le mot de passe doit être composé d'au moins 6 caractères
-          </div>
-          <ng-template #nomatch >
-            Le mot de passe est incorrect
-          </ng-template>
-        </div>
-        <!--- Email Block --->
-        <div class="form-group">
-          <label for="inputEmail">Email&nbsp;:&nbsp;</label>
-          <input type="text"
-                 ngModel
-                 id="inputEmail"
-                 name="mail"
-                 #mail = "ngModel"
+        <div class="container-fluid">
+<div class="row">
+  <div class="col-sm-auto" style="background-color:lightgrey;">
 
-                 pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" required>
-        </div>
-        <div *ngIf="mail.invalid && (mail.dirty || mail.touched)"
-             class="alert alert-danger">
-          <div *ngIf = "mail.errors?.required">
-            Le champs Email doit être complété
-          </div>
-          <div *ngIf = "mail.errors?.pattern && mail.touched">
-            L'Email rentré n'est pas correct
-          </div>
-        </div>
-        <!--- Select gender Block --->
-        <div class="form-group">
-          <label for="select">Civilité&nbsp;:&nbsp;</label>
-          <select id="select" ngModel = "praticien.civilite" name = "civilite">
-            <option *ngFor = "let c of civilite"
-                    [value] = "c"> {{c}}
-            </option>
-          </select>
-        </div>
-        <!---nom prenom telephone adresse--->
-        <div class="form-group">
-          <label for="inputNom">Nom&nbsp;:&nbsp;</label>
-          <input type="text"
-                 ngModel
-                 name="nom"
-                 id="inputNom"
-                 #nom = "ngModel"
-               required>
-        </div>
-        <div *ngIf="nom.invalid && (nom.dirty || nom.touched)"
-             class="alert alert-danger">
-          <div *ngIf = "nom.errors?.required">
-            Le champs nom doit être complété
-          </div>
-        </div>
-        <div class="form-group">
-          <label for="inputPrenom">Prénom&nbsp;:&nbsp;</label>
-          <input type="text"
-                 ngModel
-                 name="prenom"
-                 id="inputPrenom"
-                 #prenom = "ngModel"
-                required>
-        </div>
-        <div *ngIf="prenom.invalid && (prenom.dirty || prenom.touched)"
-             class="alert alert-danger">
-          <div *ngIf = "prenom.errors?.required">
-            Le champs prénom doit être complété
-          </div>
-        </div>
-        <div class="form-group">
-          <label for="inputTelephone">Téléphone&nbsp;:&nbsp;</label>
-          <input type="text"
-                 ngModel
-                 name="telephone"
-                 id="inputTelephone"
-                 #telephone = "ngModel"
-                  required>
-        </div>
-        <div *ngIf="telephone.invalid && (telephone.dirty || telephone.touched)"
-             class="alert alert-danger">
-          <div *ngIf = "telephone.errors?.required">
-            Le champs téléphone doit être complété
-          </div>
-        </div>
-        <br/>Adresse&nbsp;:&nbsp;<br/>
-        <div class="form-group">
-          <label for="inputNumero">Numéro&nbsp;:&nbsp;</label>
-          <input type="text"
-                 ngModel
-                 name="cabinet.numero"
-                 id="inputNumero"
-                 #numero = "ngModel"
-                  required>
-        </div>
-        <div *ngIf="numero.invalid && (numero.dirty || numero.touched)"
-             class="alert alert-danger">
-          <div *ngIf = "numero.errors?.required">
-            Le champs numéro doit être complété
-          </div>
-        </div>
-        <div class="form-group">
-          <label for="inputRue">Rue&nbsp;:&nbsp;</label>
-          <input type="text"
-                 ngModel
-                 name="cabinet.rue"
-                 id="inputRue"
-                 #rue = "ngModel"
-                 required>
-        </div>
-        <div *ngIf="rue.invalid && (rue.dirty || rue.touched)"
-             class="alert alert-danger">
-          <div *ngIf = "rue.errors?.required">
-            Le champs rue doit être complété
-          </div>
-        </div>
-        <div class="form-group">
-          <label for="inputCp">Code&nbsp;Postal&nbsp;:&nbsp;</label>
-          <input type="text"
-                 ngModel
-                 name="cabinet.cp"
-                 id="inputCp"
-                 #cp = "ngModel"
-                 required>
-        </div>
-        <div *ngIf="cp.invalid && (cp.dirty || cp.touched)"
-             class="alert alert-danger">
-          <div *ngIf = "cp.errors?.required">
-            Le champs code postal doit être complété
-          </div>
-        </div>
-        <div class="form-group">
-          <label for="inputVille">Ville&nbsp;:&nbsp;</label>
-          <input type="text"
-                 ngModel
-                 name="cabinet.ville"
-                 id="inputVille"
-                 #ville = "ngModel"  required>
-        </div>
-        <div *ngIf="ville.invalid && (ville.dirty || ville.touched)"
-             class="alert alert-danger">
-          <div *ngIf = "ville.errors?.required">
-            Le champs ville doit être complété
-          </div>
-        </div>
-        <div class="form-group">
-          <label for="inputCode">Code&nbsp;:&nbsp;</label>
-          <input type="text"
-                 ngModel
-                 name="cabinet.code"
-                 id="inputCode"
-                 #code = "ngModel"
-        >
-        </div>
+    <h3>Informations personnelles</h3><br>
+    <!--- Email Block --->
+    <div class="form-group">
+      <label for="inputEmail">Email&nbsp;:&nbsp;</label>
+      <input type="text"
+             ngModel
+             id="inputEmail"
+             name="mail"
+             #mail = "ngModel"
 
-        <!---specialite--->
-        <div class="form-group">
-          <label for="select1">Spécialité&nbsp;1&nbsp;:&nbsp;</label>
-          <select id="select1">
-            <option>Généraliste</option>
-            <option>Pédiatre</option>
-            <option>Gynécologue</option>
-            <option>Dentiste</option>
-            <option>Psychologue</option>
-            <option>Ophtalmologue</option>
-            <option>ORL</option>
-            <option>Cardiologue</option>
-            <option>Dermatologue</option>
-          </select>
-        </div>
-        <div class="form-group">
-          <label for="select2">Spécialité 2&nbsp;:&nbsp;</label>
-          <select id="select2">
-            <option>Généraliste</option>
-            <option>Pédiatre</option>
-            <option>Gynécologue</option>
-            <option>Dentiste</option>
-            <option>Psychologue</option>
-            <option>Ophtalmologue</option>
-            <option>ORL</option>
-            <option>Cardiologue</option>
-            <option>Dermatologue</option>
-            <option>Aucune</option>
-          </select>
-        </div>
-        <div class="form-group">
-          <label for="select3">Spécialité&nbsp;3&nbsp;:&nbsp;</label>
-          <select id="select3">
-            <option>Généraliste</option>
-            <option>Pédiatre</option>
-            <option>Gynécologue</option>
-            <option>Dentiste</option>
-            <option>Psychologue</option>
-            <option>Ophtalmologue</option>
-            <option>ORL</option>
-            <option>Cardiologue</option>
-            <option>Dermatologue</option>
-            <option>Aucune</option>
-          </select>
-        </div>
-        <!---motif--->
-        <div class="form-group">
-          <label for="inputMotif1">Motif&nbsp;1&nbsp;:&nbsp;</label>
-          <input type="text"
-                 ngModel
-                 name="motifs"
-                 id="inputMotif1"
-                 #motif1 = "ngModel"
-                 required>
-        </div>
-        <div *ngIf="motif1.invalid && (motif1.dirty || motif1.touched)"
-             class="alert alert-danger">
-          <div *ngIf = "motif1.errors?.required">
-            Au moins un motif doit être complété
-          </div>
-        </div>
-        <div class="form-group">
-          <label for="inputMotif2">Motif&nbsp;2&nbsp;:&nbsp;</label>
-          <input type="text"
-                 ngModel
-                 name="motifs"
-                 id="inputMotif2"
-                 #motif2 = "ngModel"
-                 >
-        </div>
-        <div class="form-group">
-          <label for="inputMotif3">Motif&nbsp;3&nbsp;:&nbsp;</label>
-          <input type="text"
-                 ngModel
-                 name="motifs"
-                 id="inputMotif3"
-                 #motif3 = "ngModel"
-                 >
-        </div>
+             pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" required>
+    </div>
+    <div *ngIf="mail.invalid && (mail.dirty || mail.touched)"
+         class="alert alert-danger">
+      <div *ngIf = "mail.errors?.required">
+        Le champs Email doit être complété
+      </div>
+      <div *ngIf = "mail.errors?.pattern && mail.touched">
+        L'Email rentré n'est pas correct
+      </div>
+    </div>
+
+    <!-- username-->
+    <div class="form-group">
+      <label for="inputUsername">Identifiant&nbsp;:&nbsp;</label>
+      <input type="text"
+             ngModel
+             name="username"
+             id="inputUsername"
+             #username = "ngModel"
+             required>
+    </div>
+    <div *ngIf="username.invalid && (username.dirty || username.touched)"
+         class="alert alert-danger">
+      <div *ngIf = "username.errors?.required">
+        Le champs identifiant doit être complété
+      </div>
+    </div>
+    <!--- Password Block --->
+    <div class="form-group">
+      <label for="inputPassword">Mot de Passe&nbsp;:&nbsp;</label>
+      <input type="password"
+             ngModel
+             name="password"
+             id="inputPassword"
+             #password = "ngModel"
+
+             minlength="6" required>
+    </div>
+    <div *ngIf="(password.invalid && password.touched)"
+         class="alert alert-danger">
+      <div *ngIf = "password.invalid; else nomatch">
+        Le mot de passe doit être composé d'au moins 6 caractères
+      </div>
+      <ng-template #nomatch >
+        Le mot de passe est incorrect
+      </ng-template>
+    </div>
+
+
+
+    <!--- Select gender Block --->
+    <div class="form-group">
+      <label for="select">Civilité&nbsp;:&nbsp;</label>
+      <select id="select" ngModel = "praticien.civilite" name = "civilite">
+        <option *ngFor = "let c of civilite"
+                [value] = "c"> {{c}}
+        </option>
+      </select>
+    </div>
+    <!---nom prenom telephone adresse--->
+    <div class="form-group">
+      <label for="inputNom">Nom&nbsp;:&nbsp;</label>
+      <input type="text"
+             ngModel
+             name="nom"
+             id="inputNom"
+             #nom = "ngModel"
+             required>
+    </div>
+    <div *ngIf="nom.invalid && (nom.dirty || nom.touched)"
+         class="alert alert-danger">
+      <div *ngIf = "nom.errors?.required">
+        Le champs nom doit être complété
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="inputPrenom">Prénom&nbsp;:&nbsp;</label>
+      <input type="text"
+             ngModel
+             name="prenom"
+             id="inputPrenom"
+             #prenom = "ngModel"
+             required>
+    </div>
+    <div *ngIf="prenom.invalid && (prenom.dirty || prenom.touched)"
+         class="alert alert-danger">
+      <div *ngIf = "prenom.errors?.required">
+        Le champs prénom doit être complété
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="inputTelephone">Téléphone&nbsp;:&nbsp;</label>
+      <input type="text"
+             ngModel
+             name="telephone"
+             id="inputTelephone"
+             #telephone = "ngModel"
+             required>
+    </div>
+    <div *ngIf="telephone.invalid && (telephone.dirty || telephone.touched)"
+         class="alert alert-danger">
+      <div *ngIf = "telephone.errors?.required">
+        Le champs téléphone doit être complété
+      </div>
+    </div>
+    <br/>Adresse&nbsp;:&nbsp;<br/>
+    <div class="form-group">
+      <label for="inputNumero">Numéro&nbsp;:&nbsp;</label>
+      <input type="text"
+             ngModel
+             name="cabinet.numero"
+             id="inputNumero"
+             #numero = "ngModel"
+             required>
+    </div>
+    <div *ngIf="numero.invalid && (numero.dirty || numero.touched)"
+         class="alert alert-danger">
+      <div *ngIf = "numero.errors?.required">
+        Le champs numéro doit être complété
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="inputRue">Rue&nbsp;:&nbsp;</label>
+      <input type="text"
+             ngModel
+             name="cabinet.rue"
+             id="inputRue"
+             #rue = "ngModel"
+             required>
+    </div>
+    <div *ngIf="rue.invalid && (rue.dirty || rue.touched)"
+         class="alert alert-danger">
+      <div *ngIf = "rue.errors?.required">
+        Le champs rue doit être complété
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="inputCp">Code&nbsp;Postal&nbsp;:&nbsp;</label>
+      <input type="text"
+             ngModel
+             name="cabinet.cp"
+             id="inputCp"
+             #cp = "ngModel"
+             required>
+    </div>
+    <div *ngIf="cp.invalid && (cp.dirty || cp.touched)"
+         class="alert alert-danger">
+      <div *ngIf = "cp.errors?.required">
+        Le champs code postal doit être complété
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="inputVille">Ville&nbsp;:&nbsp;</label>
+      <input type="text"
+             ngModel
+             name="cabinet.ville"
+             id="inputVille"
+             #ville = "ngModel"  required>
+    </div>
+    <div *ngIf="ville.invalid && (ville.dirty || ville.touched)"
+         class="alert alert-danger">
+      <div *ngIf = "ville.errors?.required">
+        Le champs ville doit être complété
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="inputCode">Code&nbsp;:&nbsp;</label>
+      <input type="text"
+             ngModel
+             name="cabinet.code"
+             id="inputCode"
+             #code = "ngModel"
+      >
+    </div>
+
+  </div>
+  <div class="col-sm-auto" style="background-color:lavender;">
+
+    <h3>Informations professionnelles</h3>
+    <!---specialite--->
+    <div class="form-group">
+      <label for="select1">Spécialité&nbsp;1&nbsp;:&nbsp;</label>
+      <select id="select1">
+        <option>Généraliste</option>
+        <option>Pédiatre</option>
+        <option>Gynécologue</option>
+        <option>Dentiste</option>
+        <option>Psychologue</option>
+        <option>Ophtalmologue</option>
+        <option>ORL</option>
+        <option>Cardiologue</option>
+        <option>Dermatologue</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="select2">Spécialité 2&nbsp;:&nbsp;</label>
+      <select id="select2">
+        <option>Généraliste</option>
+        <option>Pédiatre</option>
+        <option>Gynécologue</option>
+        <option>Dentiste</option>
+        <option>Psychologue</option>
+        <option>Ophtalmologue</option>
+        <option>ORL</option>
+        <option>Cardiologue</option>
+        <option>Dermatologue</option>
+        <option>Aucune</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="select3">Spécialité&nbsp;3&nbsp;:&nbsp;</label>
+      <select id="select3">
+        <option>Généraliste</option>
+        <option>Pédiatre</option>
+        <option>Gynécologue</option>
+        <option>Dentiste</option>
+        <option>Psychologue</option>
+        <option>Ophtalmologue</option>
+        <option>ORL</option>
+        <option>Cardiologue</option>
+        <option>Dermatologue</option>
+        <option>Aucune</option>
+      </select>
+    </div>
+    <!---motif--->
+    <div class="form-group">
+      <label for="inputMotif1">Motif&nbsp;1&nbsp;:&nbsp;</label>
+      <input type="text"
+             ngModel
+             name="motifs"
+             id="inputMotif1"
+             #motif1 = "ngModel"
+             required>
+    </div>
+    <div *ngIf="motif1.invalid && (motif1.dirty || motif1.touched)"
+         class="alert alert-danger">
+      <div *ngIf = "motif1.errors?.required">
+        Au moins un motif doit être complété
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="inputMotif2">Motif&nbsp;2&nbsp;:&nbsp;</label>
+      <input type="text"
+             ngModel
+             name="motifs"
+             id="inputMotif2"
+             #motif2 = "ngModel"
+      >
+    </div>
+    <div class="form-group">
+      <label for="inputMotif3">Motif&nbsp;3&nbsp;:&nbsp;</label>
+      <input type="text"
+             ngModel
+             name="motifs"
+             id="inputMotif3"
+             #motif3 = "ngModel"
+      >
+    </div>
+  </div>
+</div>
+</div>
         <!--- Buttons Block --->
         <div class="form-group">
-          <button type="reset" class="btn btn-default">Annuler</button>
-          <button type="submit" class="btn btn-success" [disabled]="!signupForm.form.valid" >Valider</button>
+
+
+          <button class="btn btn-warning" [routerLink]="['/accueil']" routerLinkActive="active">Annuler</button>&nbsp;&nbsp;&nbsp;
+
+          <button type="submit" class="btn btn-success" [disabled]="!signupForm.form.valid">Valider</button>
+
+
           <!--boutton submit desactive jusqua ce que le formulaire soit valide-->
         </div>
       </fieldset>
     </form>
     <!--{{signupForm.value | json}}-->
-  </div>
-</div>
+

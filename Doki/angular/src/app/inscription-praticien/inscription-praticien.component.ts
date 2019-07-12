@@ -38,10 +38,8 @@ export class InscriptionPraticienComponent implements OnInit {
     this.praticien = value;
     this.praticienService.insert(this.praticien).subscribe(res => {
       this.newPraticien.emit();
+      this.router.navigate(['/accueil']);
     });
   }
-  action()
-  {
-    this.router.navigate(['/accueil']);
-  }
+
 }
