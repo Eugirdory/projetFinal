@@ -35,7 +35,7 @@ export class InscriptionPatientComponent implements OnInit {
     this.patient = value;
     this.patientService.insert(this.patient).subscribe(res => {
       this.newPatient.emit();
-      this.router.navigate(['/acceuil']);
+      this.router.navigate(['/accueil']);
   });
   }
 }
