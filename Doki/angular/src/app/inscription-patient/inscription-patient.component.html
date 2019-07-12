@@ -12,13 +12,13 @@
 
         <!--- Email Block --->
         <div class="form-group">
-          <label for="inputEmail">Email: </label>
+          <label for="inputEmail">Email&nbsp;:&nbsp;</label>
           <input type="text"
                  ngModel
                  id="inputEmail"
                  name="mail"
                  #mail="ngModel"
-                 placeholder="Email"
+
                  pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" required>
         </div>
         <div *ngIf="mail.invalid && (mail.dirty || mail.touched)"
@@ -32,13 +32,13 @@
         </div>
         <!-- username-->
         <div class="form-group">
-          <label for="inputUsername">Identifiant : </label>
+          <label for="inputUsername">Identifiant&nbsp;:&nbsp;</label>
           <input type="text"
                  ngModel
                  name="username"
                  id="inputUsername"
                  #username = "ngModel"
-                 placeholder="Identifiant" required>
+                  required>
         </div>
         <div *ngIf="username.invalid && (username.dirty || username.touched)"
              class="alert alert-danger">
@@ -48,13 +48,13 @@
         </div>
         <!--- Password Block --->
         <div class="form-group">
-          <label for="inputPassword">Mot de Passe</label>
+          <label for="inputPassword">Mot de Passe&nbsp;:&nbsp;</label>
           <input type="password"
                  ngModel
                  name="password"
                  id="inputPassword"
                  #password = "ngModel"
-                 placeholder="Password"
+
                  minlength="6" required>
         </div>
         <div *ngIf="(password.invalid && password.touched)"
@@ -68,7 +68,7 @@
         </div>
         <!--- Select gender Block --->
         <div class="form-group">
-          <label for="select">Civilite</label>
+          <label for="select">Civilité&nbsp;:&nbsp;</label>
           <select id="select" ngModel = "praticien.civilite" name = "civilite">
             <option *ngFor = "let c of civilite"
                     [value] = "c"> {{c}}
@@ -79,45 +79,44 @@
         <!---nom prenom date de naissance telephone adresse--->
 
         <div class="form-group">
-          <label for="inputNom">Nom</label>
+          <label for="inputNom">Nom&nbsp;:&nbsp;</label>
           <input type="text"
                  ngModel
                  name="nom"
                  id="inputNom"
                  #nom="ngModel"
-                 placeholder="Nom" required>
+                 required>
         </div>
         <div *ngIf="nom.invalid && (nom.dirty || nom.touched)"
              class="alert alert-danger">
           <div *ngIf="nom.errors?.required">
-            Le champs Nom doit être complété
+            Le champs nom doit être complété
           </div>
         </div>
         <div class="form-group">
-          <label for="inputPrenom">Prenom</label>
+          <label for="inputPrenom">Prénom&nbsp;:&nbsp;</label>
           <input type="text"
                  ngModel
                  name="prenom"
                  id="inputPrenom"
-                 #prenom="ngModel"
-                 placeholder="Prenom" required>
+                 #prenom="ngModel" required>
         </div>
         <div *ngIf="prenom.invalid && (prenom.dirty || prenom.touched)"
              class="alert alert-danger">
           <div *ngIf="prenom.errors?.required">
-            Le champs Prenom doit être complété
+            Le champs prénom doit être complété
           </div>
         </div>
 
 
         <div class="form-group">
-          <label for="inputTelephone">Telephone</label>
+          <label for="inputTelephone">Téléphone&nbsp;:&nbsp;</label>
           <input type="text"
                  ngModel
                  name="telephone"
                  id="inputTelephone"
                  #telephone = "ngModel"
-                 placeholder="Telephone" required>
+                 required>
         </div>
         <div *ngIf="telephone.invalid && (telephone.dirty || telephone.touched)"
              class="alert alert-danger">
@@ -128,45 +127,45 @@
 
         <!-- Date naissance à relir -->
         <div class="form-group">
-          <label for="inputDateNaissance">Date de naissance</label>
+          <label for="inputDateNaissance">Date de naissance&nbsp;:&nbsp;</label>
           <input type="date"
                  ngModel
                  name="dateNaissance"
                  id="inputDateNaissance"
                  #dateNaissance="ngModel"
-                 placeholder="Date de naissance" required>
+                 required>
         </div>
         <div *ngIf="dateNaissance.invalid && (dateNaissance.dirty || dateNaissance.touched)"
              class="alert alert-danger">
           <div *ngIf="dateNaissance.errors?.required">
-            Le champs date de naissance doit être renseigné doit être complété
+            Le champs date de naissance doit être renseigné
           </div>
         </div>
 
-        Adresse&nbsp;:<br/>
+        <br/>Adresse&nbsp;:&nbsp;<br/>
         <div class="form-group">
-          <label for="inputNumero">Numero</label>
+          <label for="inputNumero">Numéro&nbsp;:&nbsp;</label>
           <input type="text"
                  ngModel
                  name="numero"
                  id="inputNumero"
                  #numero="ngModel"
-                 placeholder="Numero" required>
+                required>
         </div>
         <div *ngIf="numero.invalid && (numero.dirty || numero.touched)"
              class="alert alert-danger">
           <div *ngIf="numero.errors?.required">
-            Le champs numero doit être complété
+            Le champs numéro doit être complété
           </div>
         </div>
         <div class="form-group">
-          <label for="inputRue">Rue</label>
+          <label for="inputRue">Rue&nbsp;:&nbsp;</label>
           <input type="text"
                  ngModel
                  name="rue"
                  id="inputRue"
                  #rue="ngModel"
-                 placeholder="Rue" required>
+             required>
         </div>
         <div *ngIf="rue.invalid && (rue.dirty || rue.touched)"
              class="alert alert-danger">
@@ -175,28 +174,28 @@
           </div>
         </div>
         <div class="form-group">
-          <label for="inputCp">CP</label>
+          <label for="inputCp">Code Postal&nbsp;:&nbsp;</label>
           <input type="text"
                  ngModel
                  name="cp"
                  id="inputCp"
                  #cp="ngModel"
-                 placeholder="CP" required>
+              required>
         </div>
         <div *ngIf="cp.invalid && (cp.dirty || cp.touched)"
              class="alert alert-danger">
           <div *ngIf="cp.errors?.required">
-            Le champs cp doit être complété
+            Le champs code postal doit être complété
           </div>
         </div>
         <div class="form-group">
-          <label for="inputVille">Ville</label>
+          <label for="inputVille">Ville&nbsp;:&nbsp;</label>
           <input type="text"
                  ngModel
                  name="ville"
                  id="inputVille"
                  #ville="ngModel"
-                 placeholder="Ville" required>
+                required>
         </div>
         <div *ngIf="ville.invalid && (ville.dirty || ville.touched)"
              class="alert alert-danger">
@@ -207,13 +206,13 @@
         <!--- Buttons Block --->
         <div class="form-group">
           <button type="reset" class="btn btn-default">Annuler</button>
-          <button type="submit" class="btn btn-success" [disabled]="!signupForm.form.valid">Passer à l'étape suivante
+          <button type="submit" class="btn btn-success" [disabled]="!signupForm.form.valid">Valider
           </button>
           <!--boutton submit desactive jusqua ce que le formulaire soit valide-->
         </div>
       </fieldset>
     </form>
-    {{signupForm.value | json}}
+   <!-- {{signupForm.value | json}}-->
   </div>
 
 </div>
